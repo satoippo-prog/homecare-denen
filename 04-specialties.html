@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>対応している科目 | ホームケアクリニック田園調布</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #2C5F4B; --primary-light: #3D7A62; --primary-pale: #E8F0EC;
+  --accent: #C4926E; --accent-light: #E8D5C4;
+  --dark: #1A1A1A; --text: #333333; --text-light: #666666;
+  --bg: #FAFAF7; --white: #FFFFFF; --border: #E0DDD8;
+  --serif: 'Noto Serif JP', serif; --sans: 'Noto Sans JP', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--sans); color: var(--text); background: var(--bg); line-height: 1.8; overflow-x: hidden; }
+
+/* ===== HEADER ===== */
+.header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--dark); }
+.logo-icon { width: 44px; height: 44px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; color: white; font-family: var(--serif); font-size: 18px; font-weight: 700; }
+.logo-text { font-family: var(--serif); font-size: 14px; line-height: 1.4; }
+.logo-text span { display: block; font-size: 11px; color: var(--text-light); font-family: var(--sans); font-weight: 300; letter-spacing: 1px; }
+nav { display: flex; align-items: center; gap: 28px; }
+nav a { text-decoration: none; color: var(--text); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; position: relative; padding-bottom: 2px; }
+nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px; background: var(--primary); transition: width 0.3s ease; }
+nav a:hover::after { width: 100%; }
+nav a.active { color: var(--primary); }
+nav a.active::after { width: 100%; }
+.header-cta { background: var(--primary); color: white; padding: 10px 24px; border-radius: 30px; text-decoration: none; font-size: 13px; font-weight: 500; transition: all 0.3s ease; }
+.header-cta:hover { background: var(--primary-light); }
+
+/* ===== PAGE HERO ===== */
+.page-hero { margin-top: 77px; padding: 80px 24px 60px; background: linear-gradient(135deg, var(--primary) 0%, #1a3e30 100%); position: relative; overflow: hidden; }
+.page-hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+.page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+.page-hero .breadcrumb { font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+.page-hero .breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; }
+.page-hero .en { display: block; font-size: 11px; letter-spacing: 4px; color: var(--accent-light); text-transform: uppercase; font-weight: 700; margin-bottom: 8px; opacity: 0; animation: fadeUp 0.6s ease 0.2s forwards; }
+.page-hero h1 { font-family: var(--serif); color: white; font-size: clamp(28px, 4vw, 40px); font-weight: 600; line-height: 1.5; opacity: 0; animation: fadeUp 0.6s ease 0.4s forwards; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ===== SECTIONS ===== */
+.section { padding: 100px 24px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 56px; }
+.section-header .en { display: block; font-size: 11px; letter-spacing: 4px; color: var(--accent); text-transform: uppercase; font-weight: 700; margin-bottom: 8px; }
+.section-header h2 { font-family: var(--serif); font-size: clamp(24px, 3vw, 32px); font-weight: 600; color: var(--dark); line-height: 1.5; }
+.section-header h2 em { font-style: normal; color: var(--primary); }
+.section-header p { margin-top: 16px; color: var(--text-light); font-size: 14px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 2; }
+
+/* ===== SPECIALTY CARDS ===== */
+.specialty-section { margin-bottom: 64px; }
+.specialty-section:last-child { margin-bottom: 0; }
+
+.specialty-card {
+  background: var(--white); border-radius: 20px;
+  overflow: hidden; border: 1px solid var(--border);
+  display: grid; grid-template-columns: 360px 1fr;
+  transition: all 0.3s ease;
+}
+.specialty-card:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.06); }
+.specialty-image {
+  background: var(--primary-pale); display: flex; align-items: center; justify-content: center;
+  font-size: 13px; color: var(--text-light); text-align: center; line-height: 2;
+  min-height: 300px; border: none;
+}
+.specialty-content { padding: 48px 40px; }
+.specialty-label {
+  display: inline-block; background: var(--primary); color: white;
+  padding: 4px 16px; border-radius: 20px; font-size: 11px; font-weight: 700;
+  letter-spacing: 1px; margin-bottom: 16px;
+}
+.specialty-content h3 {
+  font-family: var(--serif); font-size: 24px; color: var(--dark);
+  margin-bottom: 16px; line-height: 1.5;
+}
+.specialty-content p {
+  font-size: 14px; color: var(--text-light); line-height: 2.2; margin-bottom: 16px;
+}
+.specialty-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.specialty-tag {
+  display: inline-block; background: var(--primary-pale); color: var(--primary);
+  padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500;
+}
+
+.specialty-card.reverse { grid-template-columns: 1fr 360px; }
+.specialty-card.reverse .specialty-image { order: 2; }
+.specialty-card.reverse .specialty-content { order: 1; }
+
+/* ===== DOCTORS ===== */
+.doctor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.doctor-card {
+  background: var(--white); border-radius: 16px; padding: 32px 24px;
+  text-align: center; border: 1px solid var(--border); transition: all 0.3s;
+}
+.doctor-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+.doctor-avatar {
+  width: 100px; height: 100px; border-radius: 50%; background: var(--primary-pale);
+  margin: 0 auto 16px; display: flex; align-items: center; justify-content: center;
+  font-size: 11px; color: var(--text-light); border: 2px solid var(--border);
+}
+.doctor-card h4 { font-family: var(--serif); font-size: 16px; color: var(--dark); margin-bottom: 4px; }
+.doctor-card .specialty { font-size: 11px; color: var(--primary); font-weight: 600; margin-bottom: 12px; display: block; }
+.doctor-card p { font-size: 12px; color: var(--text-light); line-height: 1.8; }
+
+/* ===== CTA ===== */
+.cta-banner { background: linear-gradient(135deg, var(--primary) 0%, #1a3e30 100%); padding: 80px 24px; text-align: center; }
+.cta-banner h2 { font-family: var(--serif); font-size: 28px; color: white; margin-bottom: 16px; line-height: 1.6; }
+.cta-banner p { color: rgba(255,255,255,0.8); font-size: 14px; margin-bottom: 32px; line-height: 2; }
+.cta-btn { display: inline-block; background: white; color: var(--primary); padding: 14px 40px; border-radius: 40px; text-decoration: none; font-weight: 700; font-size: 14px; transition: all 0.3s ease; margin: 0 8px; }
+.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+.cta-btn.secondary { background: transparent; color: white; border: 1px solid rgba(255,255,255,0.4); }
+
+/* ===== FOOTER ===== */
+footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 64px 24px 32px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+.footer-brand { font-family: var(--serif); color: white; font-size: 16px; margin-bottom: 12px; }
+.footer-brand-sub { font-size: 12px; line-height: 1.8; }
+.footer-col h4 { color: white; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; font-weight: 700; }
+.footer-col a { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; margin-bottom: 8px; }
+.footer-col a:hover { color: var(--accent-light); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 11px; }
+.footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  nav { display: none; }
+  .specialty-card, .specialty-card.reverse { grid-template-columns: 1fr; }
+  .specialty-card.reverse .specialty-image { order: 0; }
+  .specialty-card.reverse .specialty-content { order: 0; }
+  .doctor-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="01-top.html" class="logo">
+      <div class="logo-icon">H</div>
+      <div class="logo-text">ホームケアクリニック田園調布<span>HOMECARE CLINIC DENENCHOFU</span></div>
+    </a>
+    <nav>
+      <a href="02-clinic-introduction.html">クリニック紹介</a>
+      <a href="03-home-medical-care.html">訪問診療</a>
+      <a href="#" class="active">診療科目</a>
+      <a href="05-partners.html">各機関の方へ</a>
+      <a href="06-recruitment.html">採用情報</a>
+      <a href="07-contact.html">お問い合わせ</a>
+    </nav>
+    <a href="07-contact.html" class="header-cta">お問い合わせ</a>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="01-top.html">ホーム</a> ＞ 対応している科目</div>
+    <span class="en">Medical Specialties</span>
+    <h1>対応している科目</h1>
+  </div>
+</section>
+
+<!-- SPECIALTIES -->
+<section class="section" style="background: var(--bg);">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="en">Departments</span>
+      <h2>当院の<em>診療科目</em></h2>
+      <p>複数の専門医が在籍し、幅広い疾患に対応するチーム医療を実践しています。</p>
+    </div>
+
+    <!-- 総合内科 -->
+    <div class="specialty-section">
+      <div class="specialty-card">
+        <div class="specialty-image">総合内科<br>診療イメージ写真</div>
+        <div class="specialty-content">
+          <span class="specialty-label">DEPARTMENT 01</span>
+          <h3>総合内科</h3>
+          <p>風邪や生活習慣病から慢性疾患の管理まで、内科全般を幅広く診療します。複数の疾患をお持ちの方でも、総合的な視点で最適な治療計画を立てます。</p>
+          <p>在宅で療養される患者さんは、複数の病気を抱えていることが多くあります。臓器別の専門にとらわれず、患者さん全体を診ることで、薬の重複や相互作用にも配慮した適切な治療を提供します。</p>
+          <div class="specialty-tags">
+            <span class="specialty-tag">高血圧</span>
+            <span class="specialty-tag">糖尿病</span>
+            <span class="specialty-tag">脂質異常症</span>
+            <span class="specialty-tag">慢性腎臓病</span>
+            <span class="specialty-tag">肺炎</span>
+            <span class="specialty-tag">尿路感染症</span>
+            <span class="specialty-tag">脱水</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 緩和ケア内科 -->
+    <div class="specialty-section">
+      <div class="specialty-card reverse">
+        <div class="specialty-image">緩和ケア<br>イメージ写真</div>
+        <div class="specialty-content">
+          <span class="specialty-label">DEPARTMENT 02</span>
+          <h3>緩和ケア内科</h3>
+          <p>がんなどの疾患に伴う痛みや苦痛を和らげ、患者さまとご家族が穏やかに過ごせるよう支援します。当院の最大の強みであるペインクリニック専門医の技術を活かし、高度な疼痛管理を在宅で提供します。</p>
+          <p>硬膜外ブロック、各種神経ブロック、オピオイドの適切な使用など、病院レベルの緩和ケアを在宅で実施できることが当院の大きな特徴です。身体的な痛みだけでなく、精神的・社会的な苦痛にも多職種チームで対応します。</p>
+          <div class="specialty-tags">
+            <span class="specialty-tag">がん性疼痛</span>
+            <span class="specialty-tag">神経ブロック</span>
+            <span class="specialty-tag">オピオイド管理</span>
+            <span class="specialty-tag">終末期ケア</span>
+            <span class="specialty-tag">ACP</span>
+            <span class="specialty-tag">看取り</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 循環器内科 -->
+    <div class="specialty-section">
+      <div class="specialty-card">
+        <div class="specialty-image">循環器内科<br>診療イメージ写真</div>
+        <div class="specialty-content">
+          <span class="specialty-label">DEPARTMENT 03</span>
+          <h3>循環器内科</h3>
+          <p>慢性心不全や不整脈など、心臓・血管に関する疾患の管理を行います。携帯型心電図や超音波検査を活用し、在宅でも質の高い循環器管理を提供します。</p>
+          <p>高齢の在宅患者さんに多い心不全の増悪予防に重点を置き、体重管理や水分管理の指導、薬物療法の最適化を行います。急性増悪時には迅速に対応し、必要に応じて病院への紹介も行います。</p>
+          <div class="specialty-tags">
+            <span class="specialty-tag">慢性心不全</span>
+            <span class="specialty-tag">不整脈</span>
+            <span class="specialty-tag">高血圧</span>
+            <span class="specialty-tag">動脈硬化症</span>
+            <span class="specialty-tag">心電図検査</span>
+            <span class="specialty-tag">超音波検査</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTORS -->
+<section class="section" style="background: var(--white);">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="en">Doctors</span>
+      <h2>担当<em>医師</em></h2>
+      <p>各科の専門医が連携し、患者さんに最適な医療を提供します。</p>
+    </div>
+    <div class="doctor-grid">
+      <div class="doctor-card">
+        <div class="doctor-avatar">医師写真</div>
+        <h4>小林 徳行</h4>
+        <span class="specialty">院長 / 緩和ケア内科・ペインクリニック</span>
+        <p>ペインクリニック専門医・麻酔科認定医。20年以上の経験を持つ痛みの専門家。</p>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">医師写真</div>
+        <h4>常勤医師</h4>
+        <span class="specialty">総合内科・神経内科</span>
+        <p>内科全般と神経内科を担当。認知症や神経難病の在宅管理を専門としています。</p>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">医師写真</div>
+        <h4>非常勤医師</h4>
+        <span class="specialty">循環器内科</span>
+        <p>循環器疾患の管理を担当。心不全や不整脈の在宅管理に豊富な経験。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <h2>お気軽にご相談ください</h2>
+  <p>各科目に関するご質問はお気軽にどうぞ。</p>
+  <a href="07-contact.html" class="cta-btn">お問い合わせフォーム</a>
+  <a href="tel:03-6715-6812" class="cta-btn secondary">電話する 03-6715-6812</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ホームケアクリニック田園調布</div>
+        <div class="footer-brand-sub">医療法人凌仁会<br>〒145-0071 東京都大田区田園調布2-42-5<br>TEL: 03-6715-6812</div>
+      </div>
+      <div class="footer-col"><h4>クリニック</h4><a href="02-clinic-introduction.html">クリニック紹介</a><a href="02-clinic-introduction.html#director">院長紹介</a><a href="02-clinic-introduction.html#features">当院の特徴</a><a href="06-recruitment.html">採用情報</a></div>
+      <div class="footer-col"><h4>訪問診療</h4><a href="03-home-medical-care.html">訪問診療について</a><a href="04-specialties.html">緩和ケア</a><a href="03-home-medical-care.html#eligible">ご利用にあたって</a><a href="03-home-medical-care.html#cost">費用について</a></div>
+      <div class="footer-col"><h4>お問い合わせ</h4><a href="07-contact.html">お問い合わせフォーム</a><a href="07-contact.html#form">新患お申込み</a><a href="05-partners.html">各機関の皆様へ</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>©︎ 2024 Homecare Clinic Denenchofu</span>
+      <a href="#">プライバシーポリシー</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

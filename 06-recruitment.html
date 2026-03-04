@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>採用情報 | ホームケアクリニック田園調布</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #2C5F4B; --primary-light: #3D7A62; --primary-pale: #E8F0EC;
+  --accent: #C4926E; --accent-light: #E8D5C4;
+  --dark: #1A1A1A; --text: #333333; --text-light: #666666;
+  --bg: #FAFAF7; --white: #FFFFFF; --border: #E0DDD8;
+  --serif: 'Noto Serif JP', serif; --sans: 'Noto Sans JP', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--sans); color: var(--text); background: var(--bg); line-height: 1.8; overflow-x: hidden; }
+
+/* ===== HEADER ===== */
+.header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--dark); }
+.logo-icon { width: 44px; height: 44px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; color: white; font-family: var(--serif); font-size: 18px; font-weight: 700; }
+.logo-text { font-family: var(--serif); font-size: 14px; line-height: 1.4; }
+.logo-text span { display: block; font-size: 11px; color: var(--text-light); font-family: var(--sans); font-weight: 300; letter-spacing: 1px; }
+nav { display: flex; align-items: center; gap: 28px; }
+nav a { text-decoration: none; color: var(--text); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; position: relative; padding-bottom: 2px; }
+nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px; background: var(--primary); transition: width 0.3s ease; }
+nav a:hover::after { width: 100%; }
+nav a.active { color: var(--primary); }
+nav a.active::after { width: 100%; }
+.header-cta { background: var(--primary); color: white; padding: 10px 24px; border-radius: 30px; text-decoration: none; font-size: 13px; font-weight: 500; transition: all 0.3s ease; }
+.header-cta:hover { background: var(--primary-light); }
+
+/* ===== PAGE HERO ===== */
+.page-hero { margin-top: 77px; padding: 80px 24px 60px; background: linear-gradient(135deg, var(--primary) 0%, #1a3e30 100%); position: relative; overflow: hidden; }
+.page-hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+.page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+.page-hero .breadcrumb { font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+.page-hero .breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; }
+.page-hero .en { display: block; font-size: 11px; letter-spacing: 4px; color: var(--accent-light); text-transform: uppercase; font-weight: 700; margin-bottom: 8px; opacity: 0; animation: fadeUp 0.6s ease 0.2s forwards; }
+.page-hero h1 { font-family: var(--serif); color: white; font-size: clamp(28px, 4vw, 40px); font-weight: 600; line-height: 1.5; opacity: 0; animation: fadeUp 0.6s ease 0.4s forwards; }
+.page-hero-desc { color: rgba(255,255,255,0.8); font-size: 14px; margin-top: 16px; line-height: 2; max-width: 560px; opacity: 0; animation: fadeUp 0.6s ease 0.6s forwards; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ===== SECTIONS ===== */
+.section { padding: 100px 24px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 56px; }
+.section-header .en { display: block; font-size: 11px; letter-spacing: 4px; color: var(--accent); text-transform: uppercase; font-weight: 700; margin-bottom: 8px; }
+.section-header h2 { font-family: var(--serif); font-size: clamp(24px, 3vw, 32px); font-weight: 600; color: var(--dark); line-height: 1.5; }
+.section-header h2 em { font-style: normal; color: var(--primary); }
+.section-header p { margin-top: 16px; color: var(--text-light); font-size: 14px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 2; }
+
+/* ===== MESSAGE ===== */
+.recruit-message { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.recruit-image { aspect-ratio: 4/3; background: var(--primary-pale); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--text-light); }
+.recruit-text h3 { font-family: var(--serif); font-size: 22px; color: var(--dark); margin-bottom: 20px; line-height: 1.6; }
+.recruit-text p { font-size: 14px; color: var(--text-light); line-height: 2.2; margin-bottom: 16px; }
+
+/* ===== APPEAL POINTS ===== */
+.appeal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.appeal-card { background: var(--white); border-radius: 16px; padding: 36px 28px; border: 1px solid var(--border); position: relative; overflow: hidden; transition: all 0.3s; }
+.appeal-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--primary); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+.appeal-card:hover::before { transform: scaleX(1); }
+.appeal-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+.appeal-num { font-family: var(--serif); font-size: 36px; font-weight: 700; color: var(--primary); opacity: 0.2; margin-bottom: 12px; }
+.appeal-card h4 { font-family: var(--serif); font-size: 16px; color: var(--dark); margin-bottom: 12px; line-height: 1.5; }
+.appeal-card p { font-size: 13px; color: var(--text-light); line-height: 1.9; }
+
+/* ===== JOB LISTINGS ===== */
+.job-card { background: var(--white); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; margin-bottom: 32px; }
+.job-card:last-child { margin-bottom: 0; }
+.job-header { background: var(--primary); color: white; padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; }
+.job-header h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; }
+.job-status { display: inline-block; background: rgba(255,255,255,0.2); padding: 4px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.job-body { padding: 32px; }
+.job-table { width: 100%; border-collapse: collapse; }
+.job-table tr { border-bottom: 1px solid var(--border); }
+.job-table tr:last-child { border-bottom: none; }
+.job-table th { padding: 16px 20px; font-size: 13px; font-weight: 600; color: var(--dark); text-align: left; width: 140px; vertical-align: top; background: var(--bg); white-space: nowrap; }
+.job-table td { padding: 16px 20px; font-size: 13px; color: var(--text-light); line-height: 1.9; }
+.job-footer { padding: 0 32px 32px; text-align: center; }
+.job-apply-btn { display: inline-block; background: var(--primary); color: white; padding: 14px 48px; border-radius: 40px; text-decoration: none; font-size: 14px; font-weight: 600; transition: all 0.3s; }
+.job-apply-btn:hover { background: var(--primary-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+/* ===== FLOW ===== */
+.entry-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.entry-step { text-align: center; position: relative; }
+.entry-step:not(:last-child)::after { content: '→'; position: absolute; right: -14px; top: 24px; font-size: 18px; color: var(--accent); }
+.entry-num { width: 52px; height: 52px; border-radius: 50%; background: var(--primary); color: white; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 20px; font-weight: 700; }
+.entry-step h4 { font-size: 14px; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
+.entry-step p { font-size: 12px; color: var(--text-light); line-height: 1.8; }
+
+/* ===== CTA ===== */
+.cta-banner { background: linear-gradient(135deg, var(--primary) 0%, #1a3e30 100%); padding: 80px 24px; text-align: center; }
+.cta-banner h2 { font-family: var(--serif); font-size: 28px; color: white; margin-bottom: 16px; line-height: 1.6; }
+.cta-banner p { color: rgba(255,255,255,0.8); font-size: 14px; margin-bottom: 32px; line-height: 2; }
+.cta-btn { display: inline-block; background: white; color: var(--primary); padding: 14px 40px; border-radius: 40px; text-decoration: none; font-weight: 700; font-size: 14px; transition: all 0.3s ease; margin: 0 8px; }
+.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+.cta-btn.secondary { background: transparent; color: white; border: 1px solid rgba(255,255,255,0.4); }
+
+/* ===== FOOTER ===== */
+footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 64px 24px 32px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+.footer-brand { font-family: var(--serif); color: white; font-size: 16px; margin-bottom: 12px; }
+.footer-brand-sub { font-size: 12px; line-height: 1.8; }
+.footer-col h4 { color: white; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; font-weight: 700; }
+.footer-col a { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; margin-bottom: 8px; }
+.footer-col a:hover { color: var(--accent-light); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 11px; }
+.footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  nav { display: none; }
+  .recruit-message { grid-template-columns: 1fr; gap: 32px; }
+  .appeal-grid { grid-template-columns: 1fr; }
+  .entry-flow { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .entry-step:not(:last-child)::after { display: none; }
+  .job-table th { width: 100px; padding: 12px; }
+  .job-table td { padding: 12px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="01-top.html" class="logo">
+      <div class="logo-icon">H</div>
+      <div class="logo-text">ホームケアクリニック田園調布<span>HOMECARE CLINIC DENENCHOFU</span></div>
+    </a>
+    <nav>
+      <a href="02-clinic-introduction.html">クリニック紹介</a>
+      <a href="03-home-medical-care.html">訪問診療</a>
+      <a href="04-specialties.html">診療科目</a>
+      <a href="05-partners.html">各機関の方へ</a>
+      <a href="#" class="active">採用情報</a>
+      <a href="07-contact.html">お問い合わせ</a>
+    </nav>
+    <a href="07-contact.html" class="header-cta">お問い合わせ</a>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="01-top.html">ホーム</a> ＞ 採用情報</div>
+    <span class="en">Recruitment</span>
+    <h1>採用情報</h1>
+    <p class="page-hero-desc">在宅医療に情熱を持つ仲間を募集しています。<br>患者さんの「家で過ごしたい」を一緒に支えませんか。</p>
+  </div>
+</section>
+
+<!-- RECRUIT MESSAGE -->
+<section class="section" style="background: var(--white);">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="en">Message</span>
+      <h2>採用<em>メッセージ</em></h2>
+    </div>
+    <div class="recruit-message">
+      <div class="recruit-image">スタッフの働く様子<br>写真エリア</div>
+      <div class="recruit-text">
+        <h3>一人ひとりの「その人らしさ」を<br>支える医療を、一緒に。</h3>
+        <p>当院は「住み慣れた場所で最期まで自分らしく過ごしたい」という患者さんの思いを支えるため、在宅医療に取り組んでいます。</p>
+        <p>病院とは異なり、患者さんの生活の場に伺う在宅医療では、医療の専門性だけでなく、人としての温かさやコミュニケーション力が求められます。</p>
+        <p>私たちと一緒に、地域の方々の暮らしを支える仕事をしてみませんか。経験の有無にかかわらず、在宅医療に関心のある方のご応募をお待ちしています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPEAL POINTS -->
+<section class="section" style="background: var(--bg);">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="en">Why Join Us</span>
+      <h2>当院で<em>働く魅力</em></h2>
+    </div>
+    <div class="appeal-grid">
+      <div class="appeal-card">
+        <div class="appeal-num">01</div>
+        <h4>専門性を<br>活かせる環境</h4>
+        <p>ペインクリニック専門医のもと、緩和ケアや疼痛管理の高度なスキルを学びながら在宅医療の経験を積めます。</p>
+      </div>
+      <div class="appeal-card">
+        <div class="appeal-num">02</div>
+        <h4>チーム医療の<br>やりがい</h4>
+        <p>医師・看護師・事務が一体となった少数精鋭のチーム。風通しの良い環境で、一人ひとりの意見が尊重されます。</p>
+      </div>
+      <div class="appeal-card">
+        <div class="appeal-num">03</div>
+        <h4>ワークライフ<br>バランス</h4>
+        <p>残業少なめ、完全週休2日制。オンコール体制は当番制で、プライベートの時間も大切にできます。</p>
+      </div>
+      <div class="appeal-card">
+        <div class="appeal-num">04</div>
+        <h4>充実した<br>教育体制</h4>
+        <p>在宅医療が未経験の方でも安心。先輩スタッフによるOJTや勉強会で着実にスキルアップできます。</p>
+      </div>
+      <div class="appeal-card">
+        <div class="appeal-num">05</div>
+        <h4>好アクセスの<br>職場環境</h4>
+        <p>田園調布駅から徒歩5分の好立地。閑静な住宅街で落ち着いた環境のなか働けます。</p>
+      </div>
+      <div class="appeal-card">
+        <div class="appeal-num">06</div>
+        <h4>患者さんとの<br>深い関わり</h4>
+        <p>継続的に患者さんと関わる在宅医療だからこそ感じられる、やりがいと感謝の言葉があります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOB LISTINGS -->
+<section class="section" style="background: var(--white);">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="en">Open Positions</span>
+      <h2><em>募集職種</em></h2>
+      <p>現在募集中のポジションをご紹介します。</p>
+    </div>
+
+    <!-- 常勤医師 -->
+    <div class="job-card">
+      <div class="job-header">
+        <h3>常勤医師</h3>
+        <span class="job-status">募集中</span>
+      </div>
+      <div class="job-body">
+        <table class="job-table">
+          <tr><th>職種</th><td>常勤医師（訪問診療）</td></tr>
+          <tr><th>応募資格</th><td>医師免許をお持ちの方（科目不問）。在宅医療に関心のある方歓迎。</td></tr>
+          <tr><th>勤務時間</th><td>月〜金 9:00〜18:00（休憩1時間）<br>※オンコール当番あり（当番制）</td></tr>
+          <tr><th>給与</th><td>応相談（経験・スキルに応じて優遇）</td></tr>
+          <tr><th>休日</th><td>完全週休2日制（土・日）、祝日、年末年始、有給休暇</td></tr>
+          <tr><th>待遇</th><td>社会保険完備、交通費支給、学会参加費補助、医師賠償責任保険加入</td></tr>
+        </table>
+      </div>
+      <div class="job-footer">
+        <a href="07-contact.html" class="job-apply-btn">この職種に応募する</a>
+      </div>
+    </div>
+
+    <!-- 看護師 -->
+    <div class="job-card">
+      <div class="job-header">
+        <h3>看護師</h3>
+        <span class="job-status">募集中</span>
+      </div>
+      <div class="job-body">
+        <table class="job-table">
+          <tr><th>職種</th><td>看護師（訪問診療の同行）</td></tr>
+          <tr><th>応募資格</th><td>正看護師免許をお持ちの方。訪問看護・在宅医療経験者歓迎。</td></tr>
+          <tr><th>勤務時間</th><td>月〜金 9:00〜18:00（休憩1時間）</td></tr>
+          <tr><th>給与</th><td>応相談（経験・スキルに応じて優遇）</td></tr>
+          <tr><th>休日</th><td>完全週休2日制（土・日）、祝日、年末年始、有給休暇</td></tr>
+          <tr><th>待遇</th><td>社会保険完備、交通費支給、制服貸与、研修制度あり</td></tr>
+        </table>
+      </div>
+      <div class="job-footer">
+        <a href="07-contact.html" class="job-apply-btn">この職種に応募する</a>
+      </div>
+    </div>
+
+    <!-- 医療事務 -->
+    <div class="job-card">
+      <div class="job-header" style="background: var(--text-light);">
+        <h3>医療事務</h3>
+        <span class="job-status">準備中</span>
+      </div>
+      <div class="job-body">
+        <table class="job-table">
+          <tr><th>職種</th><td>医療事務・相談支援員</td></tr>
+          <tr><th>応募資格</th><td>医療事務経験者優遇。在宅医療クリニックでの勤務経験があれば尚可。</td></tr>
+          <tr><th>勤務時間</th><td>月〜金 9:00〜18:00（休憩1時間）</td></tr>
+          <tr><th>給与</th><td>応相談</td></tr>
+          <tr><th>休日</th><td>完全週休2日制（土・日）、祝日、年末年始、有給休暇</td></tr>
+          <tr><th>待遇</th><td>社会保険完備、交通費支給、研修制度あり</td></tr>
+        </table>
+      </div>
+      <div class="job-footer">
+        <a href="07-contact.html" class="job-apply-btn" style="background: var(--text-light);">募集開始時にお知らせします</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENTRY FLOW -->
+<section class="section" style="background: var(--bg);">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="en">Entry Flow</span>
+      <h2>応募から<em>採用まで</em>の流れ</h2>
+    </div>
+    <div class="entry-flow">
+      <div class="entry-step">
+        <div class="entry-num">1</div>
+        <h4>エントリー</h4>
+        <p>お電話またはお問い合わせフォームからご連絡ください</p>
+      </div>
+      <div class="entry-step">
+        <div class="entry-num">2</div>
+        <h4>書類選考</h4>
+        <p>履歴書・職務経歴書をご提出いただき、書類選考を行います</p>
+      </div>
+      <div class="entry-step">
+        <div class="entry-num">3</div>
+        <h4>面接・見学</h4>
+        <p>面接と併せて、クリニックや訪問診療の見学が可能です</p>
+      </div>
+      <div class="entry-step">
+        <div class="entry-num">4</div>
+        <h4>内定・入職</h4>
+        <p>条件面を確認の上、入職日を決定します</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <h2>ご応募・ご質問はお気軽に</h2>
+  <p>まずはお話を聞いてみたいという方も大歓迎です。<br>お気軽にお問い合わせください。</p>
+  <a href="07-contact.html" class="cta-btn">応募・お問い合わせ</a>
+  <a href="tel:03-6715-6812" class="cta-btn secondary">電話する 03-6715-6812</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ホームケアクリニック田園調布</div>
+        <div class="footer-brand-sub">医療法人凌仁会<br>〒145-0071 東京都大田区田園調布2-42-5<br>TEL: 03-6715-6812</div>
+      </div>
+      <div class="footer-col"><h4>クリニック</h4><a href="02-clinic-introduction.html">クリニック紹介</a><a href="02-clinic-introduction.html#director">院長紹介</a><a href="02-clinic-introduction.html#features">当院の特徴</a><a href="06-recruitment.html">採用情報</a></div>
+      <div class="footer-col"><h4>訪問診療</h4><a href="03-home-medical-care.html">訪問診療について</a><a href="04-specialties.html">緩和ケア</a><a href="03-home-medical-care.html#eligible">ご利用にあたって</a><a href="03-home-medical-care.html#cost">費用について</a></div>
+      <div class="footer-col"><h4>お問い合わせ</h4><a href="07-contact.html">お問い合わせフォーム</a><a href="07-contact.html#form">新患お申込み</a><a href="05-partners.html">各機関の皆様へ</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>©︎ 2024 Homecare Clinic Denenchofu</span>
+      <a href="#">プライバシーポリシー</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

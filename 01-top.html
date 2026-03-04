@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ホームケアクリニック田園調布 | ワイヤーフレーム</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #2C5F4B;
+  --primary-light: #3D7A62;
+  --primary-pale: #E8F0EC;
+  --accent: #C4926E;
+  --accent-light: #E8D5C4;
+  --dark: #1A1A1A;
+  --text: #333333;
+  --text-light: #666666;
+  --bg: #FAFAF7;
+  --white: #FFFFFF;
+  --border: #E0DDD8;
+  --serif: 'Noto Serif JP', serif;
+  --sans: 'Noto Sans JP', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+.header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+.header-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 24px;
+}
+.logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none; color: var(--dark);
+}
+.logo-icon {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--primary);
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-family: var(--serif); font-size: 18px; font-weight: 700;
+}
+.logo-text { font-family: var(--serif); font-size: 14px; line-height: 1.4; }
+.logo-text span { display: block; font-size: 11px; color: var(--text-light); font-family: var(--sans); font-weight: 300; letter-spacing: 1px; }
+
+nav { display: flex; align-items: center; gap: 28px; }
+nav a {
+  text-decoration: none; color: var(--text); font-size: 13px;
+  font-weight: 500; letter-spacing: 0.5px;
+  position: relative; padding-bottom: 2px;
+}
+nav a::after {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  width: 0; height: 1.5px; background: var(--primary);
+  transition: width 0.3s ease;
+}
+nav a:hover::after { width: 100%; }
+
+.header-cta {
+  background: var(--primary); color: white;
+  padding: 10px 24px; border-radius: 30px;
+  text-decoration: none; font-size: 13px; font-weight: 500;
+  transition: all 0.3s ease; letter-spacing: 0.5px;
+}
+.header-cta:hover { background: var(--primary-light); transform: translateY(-1px); }
+
+/* ===== HERO ===== */
+.hero {
+  margin-top: 77px;
+  height: 85vh; min-height: 560px;
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, #2C5F4B 0%, #1a3e30 50%, #2C5F4B 100%);
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-content {
+  position: relative; z-index: 2;
+  height: 100%; max-width: 1200px; margin: 0 auto;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 48px;
+}
+.hero-label {
+  display: inline-block;
+  font-size: 12px; letter-spacing: 3px; color: var(--accent-light);
+  text-transform: uppercase; margin-bottom: 24px;
+  font-weight: 500;
+  opacity: 0; animation: fadeUp 0.8s ease 0.3s forwards;
+}
+.hero h1 {
+  font-family: var(--serif); color: white;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 600; line-height: 1.5;
+  margin-bottom: 20px;
+  opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--accent-light);
+}
+.hero-sub {
+  color: rgba(255,255,255,0.8);
+  font-size: 15px; line-height: 2;
+  max-width: 520px;
+  opacity: 0; animation: fadeUp 0.8s ease 0.7s forwards;
+}
+.hero-badge {
+  position: absolute; bottom: 40px; right: 48px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 16px; padding: 20px 28px;
+  color: white; font-size: 13px;
+  opacity: 0; animation: fadeUp 0.8s ease 0.9s forwards;
+}
+.hero-badge strong { display: block; font-size: 16px; margin-bottom: 4px; font-family: var(--serif); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== NEWS BAR ===== */
+.news-bar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+}
+.news-bar-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; gap: 24px;
+}
+.news-label {
+  background: var(--primary); color: white;
+  padding: 4px 16px; border-radius: 20px;
+  font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  white-space: nowrap;
+}
+.news-items { display: flex; gap: 32px; overflow: hidden; flex: 1; }
+.news-item {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 13px; white-space: nowrap;
+  text-decoration: none; color: var(--text);
+  transition: color 0.2s;
+}
+.news-item:hover { color: var(--primary); }
+.news-item time { color: var(--text-light); font-size: 12px; font-weight: 500; }
+
+/* ===== SECTIONS ===== */
+.section { padding: 100px 24px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+
+.section-header {
+  text-align: center; margin-bottom: 56px;
+}
+.section-header .en {
+  display: block; font-size: 11px; letter-spacing: 4px;
+  color: var(--accent); text-transform: uppercase; font-weight: 700;
+  margin-bottom: 8px;
+}
+.section-header h2 {
+  font-family: var(--serif); font-size: clamp(24px, 3vw, 32px);
+  font-weight: 600; color: var(--dark); line-height: 1.5;
+}
+.section-header h2 em {
+  font-style: normal; color: var(--primary);
+}
+.section-header p {
+  margin-top: 16px; color: var(--text-light); font-size: 14px;
+  max-width: 600px; margin-left: auto; margin-right: auto; line-height: 2;
+}
+
+/* ===== ABOUT ===== */
+.about { background: var(--white); }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 64px; align-items: center;
+}
+.about-image {
+  aspect-ratio: 4/3; background: var(--primary-pale);
+  border-radius: 16px; position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.about-image-placeholder {
+  font-family: var(--serif); color: var(--primary);
+  font-size: 14px; opacity: 0.6; text-align: center; line-height: 2;
+}
+.about-text h3 {
+  font-family: var(--serif); font-size: 22px;
+  color: var(--dark); margin-bottom: 20px; line-height: 1.6;
+}
+.about-text p {
+  font-size: 14px; color: var(--text-light); line-height: 2.2;
+  margin-bottom: 16px;
+}
+.about-doctor {
+  margin-top: 24px; padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; gap: 16px;
+}
+.doctor-avatar {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--primary-pale);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; color: var(--text-light); border: 2px solid var(--border);
+}
+.doctor-info { font-size: 13px; }
+.doctor-info .title { color: var(--text-light); font-size: 11px; margin-bottom: 2px; }
+.doctor-info .name { font-family: var(--serif); font-weight: 600; font-size: 16px; color: var(--dark); }
+
+/* ===== STRENGTH ===== */
+.strength { background: var(--bg); }
+.strength-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.strength-card {
+  background: var(--white);
+  border-radius: 16px; padding: 36px 28px;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  position: relative; overflow: hidden;
+}
+.strength-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; background: var(--primary);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.strength-card:hover::before { transform: scaleX(1); }
+.strength-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+.strength-num {
+  font-family: var(--serif); font-size: 36px; font-weight: 700;
+  color: var(--primary); opacity: 0.2; margin-bottom: 12px;
+}
+.strength-card h4 {
+  font-family: var(--serif); font-size: 16px;
+  color: var(--dark); margin-bottom: 12px; line-height: 1.5;
+}
+.strength-card p {
+  font-size: 13px; color: var(--text-light); line-height: 1.9;
+}
+
+/* ===== SERVICES ===== */
+.services { background: var(--white); }
+.services-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.service-card {
+  background: var(--bg);
+  border-radius: 12px; padding: 32px 20px;
+  text-align: center; text-decoration: none; color: var(--text);
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+.service-card:hover {
+  border-color: var(--primary);
+  background: var(--primary-pale);
+}
+.service-icon {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--primary-pale); color: var(--text-light);
+  margin: 0 auto 16px; display: flex; align-items: center; justify-content: center;
+  font-size: 10px; border: 2px solid var(--border);
+}
+.service-card h4 {
+  font-size: 14px; font-weight: 600; margin-bottom: 8px;
+}
+.service-card p {
+  font-size: 12px; color: var(--text-light); line-height: 1.7;
+}
+
+/* ===== CARE BANNER ===== */
+.care-banner {
+  background: linear-gradient(135deg, var(--primary) 0%, #1a3e30 100%);
+  padding: 80px 24px;
+}
+.care-banner-inner {
+  max-width: 900px; margin: 0 auto; text-align: center; color: white;
+}
+.care-banner h2 {
+  font-family: var(--serif); font-size: 28px; margin-bottom: 20px; line-height: 1.6;
+}
+.care-banner p {
+  font-size: 14px; line-height: 2.2; opacity: 0.85; margin-bottom: 32px;
+}
+.care-cta {
+  display: inline-block; background: white; color: var(--primary);
+  padding: 14px 40px; border-radius: 40px;
+  text-decoration: none; font-weight: 700; font-size: 14px;
+  transition: all 0.3s ease;
+}
+.care-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+/* ===== FLOW ===== */
+.flow { background: var(--bg); }
+.flow-steps {
+  display: flex; gap: 0; position: relative;
+  justify-content: center;
+}
+.flow-step {
+  flex: 1; max-width: 220px; text-align: center;
+  position: relative; padding: 0 16px;
+}
+.flow-step:not(:last-child)::after {
+  content: '→'; position: absolute; right: -12px; top: 28px;
+  font-size: 20px; color: var(--accent);
+}
+.flow-circle {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--primary); color: white;
+  margin: 0 auto 16px; display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 22px; font-weight: 700;
+}
+.flow-step h4 { font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--dark); }
+.flow-step p { font-size: 12px; color: var(--text-light); line-height: 1.8; }
+
+/* ===== FAQ ===== */
+.faq { background: var(--white); }
+.faq-list { max-width: 760px; margin: 0 auto; }
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 24px 0;
+}
+.faq-q {
+  font-weight: 600; font-size: 15px; color: var(--dark);
+  cursor: pointer; display: flex; align-items: center; gap: 12px;
+}
+.faq-q::before {
+  content: 'Q'; display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--primary); color: white;
+  font-size: 12px; font-weight: 700; flex-shrink: 0;
+}
+.faq-a {
+  margin-top: 12px; padding-left: 40px;
+  font-size: 13px; color: var(--text-light); line-height: 2;
+}
+
+/* ===== CONTACT ===== */
+.contact {
+  background: var(--primary-pale);
+  padding: 80px 24px;
+}
+.contact-inner {
+  max-width: 900px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+  align-items: center;
+}
+.contact-box {
+  background: var(--white); border-radius: 16px;
+  padding: 36px; text-align: center;
+  border: 1px solid var(--border);
+}
+.contact-box h3 {
+  font-family: var(--serif); font-size: 18px;
+  color: var(--dark); margin-bottom: 12px;
+}
+.contact-box p {
+  font-size: 13px; color: var(--text-light); margin-bottom: 20px; line-height: 1.8;
+}
+.contact-tel {
+  font-family: var(--serif); font-size: 28px;
+  color: var(--primary); font-weight: 700;
+  text-decoration: none; display: block; margin-bottom: 6px;
+}
+.contact-tel-note { font-size: 11px; color: var(--text-light); }
+.contact-btn {
+  display: inline-block; background: var(--primary); color: white;
+  padding: 14px 40px; border-radius: 40px;
+  text-decoration: none; font-size: 14px; font-weight: 500;
+  transition: all 0.3s ease;
+}
+.contact-btn:hover { background: var(--primary-light); }
+
+/* ===== CLINIC INFO ===== */
+.clinic-info { background: var(--white); padding: 80px 24px; }
+.clinic-info-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+}
+.clinic-map {
+  background: var(--primary-pale); border-radius: 16px;
+  aspect-ratio: 16/10;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: var(--primary); opacity: 0.6;
+}
+.clinic-details dl {
+  display: grid; grid-template-columns: 100px 1fr;
+  gap: 16px 20px; font-size: 14px;
+}
+.clinic-details dt {
+  font-weight: 600; color: var(--dark);
+  font-size: 13px;
+}
+.clinic-details dd { color: var(--text-light); line-height: 1.8; font-size: 13px; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--dark); color: rgba(255,255,255,0.7);
+  padding: 64px 24px 32px;
+}
+.footer-inner {
+  max-width: 1100px; margin: 0 auto;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px; margin-bottom: 48px;
+}
+.footer-brand { font-family: var(--serif); color: white; font-size: 16px; margin-bottom: 12px; }
+.footer-brand-sub { font-size: 12px; line-height: 1.8; }
+.footer-col h4 {
+  color: white; font-size: 12px; letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 16px; font-weight: 700;
+}
+.footer-col a {
+  display: block; color: rgba(255,255,255,0.6);
+  text-decoration: none; font-size: 13px; margin-bottom: 8px;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--accent-light); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 11px;
+}
+.footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  nav { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .strength-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .flow-steps { flex-direction: column; align-items: center; }
+  .flow-step:not(:last-child)::after { content: '↓'; right: auto; bottom: -16px; top: auto; left: 50%; transform: translateX(-50%); }
+  .contact-inner { grid-template-columns: 1fr; }
+  .clinic-info-inner { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .hero { height: 70vh; }
+  .hero-badge { display: none; }
+  .hero-content { padding: 0 24px; }
+  .news-items { gap: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">H</div>
+      <div class="logo-text">
+        ホームケアクリニック田園調布
+        <span>HOMECARE CLINIC DENENCHOFU</span>
+      </div>
+    </a>
+    <nav>
+      <a href="02-clinic-introduction.html">クリニック紹介</a>
+      <a href="03-home-medical-care.html">訪問診療</a>
+      <a href="04-specialties.html">診療科目</a>
+      <a href="05-partners.html">各機関の方へ</a>
+      <a href="06-recruitment.html">採用情報</a>
+      <a href="07-contact.html">お問い合わせ</a>
+    </nav>
+    <a href="07-contact.html" class="header-cta">お問い合わせ</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-label">Homecare Clinic Denenchofu</span>
+    <h1>患者さんの<br><em>「家で過ごしたい」</em>を<br>支えるために。</h1>
+    <p class="hero-sub">
+      総合診療・一般内科に加え、痛みの治療や緩和ケアを得意とする<br>
+      訪問診療専門クリニックです。<br>
+      大田区・世田谷区・目黒区・品川区・川崎市エリアに対応。
+    </p>
+  </div>
+  <div class="hero-badge">
+    <strong>24時間 365日対応</strong>
+    在宅患者様の臨時往診・電話相談
+  </div>
+</section>
+
+<!-- NEWS -->
+<div class="news-bar">
+  <div class="news-bar-inner">
+    <span class="news-label">NEWS</span>
+    <div class="news-items">
+      <a href="#" class="news-item">
+        <time>2025.12.26</time>
+        年末年始の休診のお知らせ
+      </a>
+      <a href="#" class="news-item">
+        <time>2025.07.23</time>
+        新しい常勤医師のご紹介
+      </a>
+      <a href="#" class="news-item">
+        <time>2024.05.31</time>
+        医療情報取得加算・医療DX推進体制整備加算に関する掲示
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="en">About Us</span>
+      <h2><em>私たちの使命</em> — 住み慣れた場所での医療を</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-image">
+        <div class="about-image-placeholder">
+          院長・スタッフの<br>診療風景写真
+        </div>
+      </div>
+      <div class="about-text">
+        <h3>痛みの専門家として、<br>在宅医療に全力を。</h3>
+        <p>
+          私は20年来、大学病院で麻酔科医として手術麻酔や集中治療で患者の全身状態を診るだけでなく、患者の痛みの治療を行うペインクリニックを担当してきました。
+        </p>
+        <p>
+          後年は「緩和ケア」に携わるようになり、在宅での療養を希望する患者さんの声に触れるうちに、自分の医療技術を在宅医療に活かしたいと思い至りました。
+        </p>
+        <p>
+          患者さまが本当に望まれる医療を、一人ひとりに合った"プライマリーケア"を、尊厳を大切にした看取りケアを実施しております。
+        </p>
+        <div class="about-doctor">
+          <div class="doctor-avatar">院長写真</div>
+          <div class="doctor-info">
+            <div class="title">院長・ペインクリニック専門医</div>
+            <div class="name">小林 徳行</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRENGTH -->
+<section class="section strength" id="strength">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="en">Strength</span>
+      <h2>当院の<em>6つの特徴</em></h2>
+      <p>ひとりひとりの患者さんに寄り添い、最適な在宅医療をお届けします。</p>
+    </div>
+    <div class="strength-grid">
+      <div class="strength-card">
+        <div class="strength-num">01</div>
+        <h4>痛みの治療・<br>緩和ケアの専門性</h4>
+        <p>ペインクリニック専門医による高度な疼痛管理。硬膜外ブロックや各種神経ブロックにも対応します。</p>
+      </div>
+      <div class="strength-card">
+        <div class="strength-num">02</div>
+        <h4>24時間365日<br>対応</h4>
+        <p>土日祝も臨時往診・電話相談に対応。急な体調変化にも安心の体制を整えています。</p>
+      </div>
+      <div class="strength-card">
+        <div class="strength-num">03</div>
+        <h4>複数の専門医による<br>チーム医療</h4>
+        <p>内科、神経内科、呼吸器内科、消化器外科など、複数の専門医が在籍し幅広い疾患に対応します。</p>
+      </div>
+      <div class="strength-card">
+        <div class="strength-num">04</div>
+        <h4>尊厳を大切にした<br>看取りケア</h4>
+        <p>患者さまとご家族の意思を尊重し、住み慣れた場所での穏やかな最期を支えます。</p>
+      </div>
+      <div class="strength-card">
+        <div class="strength-num">05</div>
+        <h4>地域医療機関との<br>連携体制</h4>
+        <p>訪問看護ステーション、地域包括支援センター、ケアマネージャーと密に連携しています。</p>
+      </div>
+      <div class="strength-card">
+        <div class="strength-num">06</div>
+        <h4>幅広い<br>対応エリア</h4>
+        <p>大田区・世田谷区・目黒区・品川区・川崎市エリア。田園調布駅から徒歩5分の好立地です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services" id="services">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="en">Home Medical Care</span>
+      <h2><em>訪問診療</em>について</h2>
+      <p>通院が困難な方に、医師が定期的にご自宅や施設へ伺い診療を行います。</p>
+    </div>
+    <div class="services-grid">
+      <a href="#" class="service-card">
+        <div class="service-icon">写真</div>
+        <h4>訪問診療とは</h4>
+        <p>訪問診療の基本的な仕組みについてご説明します</p>
+      </a>
+      <a href="#" class="service-card">
+        <div class="service-icon">写真</div>
+        <h4>ご利用にあたって</h4>
+        <p>対象となる方やお申し込み方法について</p>
+      </a>
+      <a href="#" class="service-card">
+        <div class="service-icon">写真</div>
+        <h4>費用について</h4>
+        <p>訪問診療にかかる費用の目安をご案内します</p>
+      </a>
+      <a href="#" class="service-card">
+        <div class="service-icon">写真</div>
+        <h4>訪問可能エリア</h4>
+        <p>大田区・世田谷区・目黒区・品川区・川崎市</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CARE BANNER -->
+<section class="care-banner" id="care">
+  <div class="care-banner-inner">
+    <h2>緩和ケアについて</h2>
+    <p>
+      がんなどの疾患に伴う痛みや苦痛を和らげ、患者さまとご家族が<br>
+      穏やかに過ごせるよう支援します。ペインクリニック専門医が<br>
+      高度な疼痛管理を在宅で提供します。
+    </p>
+    <a href="#" class="care-cta">緩和ケアについて詳しく見る</a>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="section flow" id="flow">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="en">Flow</span>
+      <h2>訪問診療開始までの<em>流れ</em></h2>
+    </div>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-circle">1</div>
+        <h4>お電話・ご相談</h4>
+        <p>まずはお気軽にお電話ください。患者さんの状態を簡単にお伺いします。</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-circle">2</div>
+        <h4>打ち合わせ</h4>
+        <p>主治医からの情報を基に、患者さん・ご家族と訪問計画を立てます。</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-circle">3</div>
+        <h4>訪問診療開始</h4>
+        <p>医師と看護師が定期的に訪問。月2回程度が基本です。</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-circle">4</div>
+        <h4>継続的なケア</h4>
+        <p>多職種と連携しながら、状態に合わせた医療を継続します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq" id="faq">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="en">FAQ</span>
+      <h2>よくある<em>ご質問</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">どのような病気・状態でも診てもらえますか？</div>
+        <div class="faq-a">末期がん、COPD、慢性心不全、認知症など幅広く対応しています。「入院するしかない」と言われた方でも、在宅で過ごせる可能性があります。まずはお気軽にご相談ください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">訪問診療でどのような検査ができますか？</div>
+        <div class="faq-a">血液検査、心電図検査、超音波検査が可能です。処方する薬も一般の医療機関と同じものを使用できます。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">訪問の頻度はどのくらいですか？</div>
+        <div class="faq-a">基本的に月2回程度、医師と看護師の2人でお伺いします。末期がんの方は週1回など、状態に合わせて柔軟に対応します。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">夜間や休日の急な体調変化にも対応できますか？</div>
+        <div class="faq-a">はい。24時間365日、臨時往診や電話相談に対応しています。急な体調変化の際もご安心ください。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-header" style="margin-bottom: 40px;">
+    <span class="en">Contact</span>
+    <h2>お問い合わせ・<em>ご相談</em></h2>
+    <p>どんな些細なことでもお気軽にご相談ください。</p>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-box">
+      <h3>お電話でのお問い合わせ</h3>
+      <p>まずはお電話でご相談ください</p>
+      <a href="tel:03-6715-6812" class="contact-tel">03-6715-6812</a>
+      <div class="contact-tel-note">受付時間：月〜金 9:00〜18:00</div>
+    </div>
+    <div class="contact-box">
+      <h3>メールでのお問い合わせ</h3>
+      <p>フォームからもお気軽にどうぞ</p>
+      <a href="#" class="contact-btn">お問い合わせフォーム</a>
+      <div style="margin-top: 16px;">
+        <a href="#" class="contact-btn" style="background: var(--accent);">新患お申込みフォーム</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLINIC INFO -->
+<section class="clinic-info">
+  <div class="clinic-info-inner">
+    <div class="clinic-map">Googleマップ埋め込みエリア</div>
+    <div class="clinic-details">
+      <dl>
+        <dt>クリニック名</dt>
+        <dd>医療法人凌仁会<br>ホームケアクリニック田園調布</dd>
+        <dt>所在地</dt>
+        <dd>〒145-0071<br>東京都大田区田園調布2-42-5<br>アパートメントカヤ101</dd>
+        <dt>最寄り駅</dt>
+        <dd>東急東横線 田園調布駅<br>東口より徒歩5分</dd>
+        <dt>TEL</dt>
+        <dd>03-6715-6812</dd>
+        <dt>FAX</dt>
+        <dd>03-6715-6813</dd>
+        <dt>診療科目</dt>
+        <dd>内科・麻酔科・緩和ケア内科・<br>ペインクリニック外科・神経内科</dd>
+        <dt>診療日</dt>
+        <dd>月〜金（土・日・祝は休診）<br>※在宅患者様は365日対応</dd>
+        <dt>訪問エリア</dt>
+        <dd>大田区・世田谷区・目黒区・<br>品川区・川崎市</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ホームケアクリニック田園調布</div>
+        <div class="footer-brand-sub">
+          医療法人凌仁会<br>
+          〒145-0071 東京都大田区田園調布2-42-5<br>
+          TEL: 03-6715-6812
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>クリニック</h4>
+        <a href="#">当院について</a>
+        <a href="02-clinic-introduction.html">院長紹介</a>
+        <a href="02-clinic-introduction.html">当院の特徴</a>
+        <a href="06-recruitment.html">採用情報</a>
+      </div>
+      <div class="footer-col">
+        <h4>訪問診療</h4>
+        <a href="03-home-medical-care.html">訪問診療とは</a>
+        <a href="04-specialties.html">緩和ケアについて</a>
+        <a href="03-home-medical-care.html#eligible">ご利用にあたって</a>
+        <a href="03-home-medical-care.html#cost">費用について</a>
+      </div>
+      <div class="footer-col">
+        <h4>お問い合わせ</h4>
+        <a href="07-contact.html">お問い合わせフォーム</a>
+        <a href="07-contact.html#form">新患お申込みフォーム</a>
+        <a href="05-partners.html">各機関の皆様へ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>©︎ 2024 Homecare Clinic Denenchofu</span>
+      <a href="#">プライバシーポリシー</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
