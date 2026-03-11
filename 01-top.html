@@ -86,11 +86,23 @@ nav a:hover::after { width: 100%; }
   margin-top: 77px;
   height: 85vh; min-height: 560px;
   position: relative; overflow: hidden;
-  background: linear-gradient(135deg, #2C5F4B 0%, #1a3e30 50%, #2C5F4B 100%);
+  background: #1a3e30;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+}
+.hero-bg img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(26,62,48,0.78) 0%, rgba(44,95,75,0.55) 50%, rgba(26,62,48,0.80) 100%);
 }
 .hero::before {
   content: '';
   position: absolute; inset: 0;
+  z-index: 1;
   background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 .hero-content {
@@ -491,6 +503,9 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-bg">
+    <img src="images/01-hero.png" alt="訪問診療の風景">
+  </div>
   <div class="hero-content">
     <span class="hero-label">Homecare Clinic Denenchofu</span>
     <h1>患者さんの<br><em>「家で過ごしたい」</em>を<br>支えるために。</h1>
@@ -536,9 +551,7 @@ footer {
     </div>
     <div class="about-grid">
       <div class="about-image">
-        <div class="about-image-placeholder">
-          院長・スタッフの<br>診療風景写真
-        </div>
+        <img src="images/01-hero.png" alt="訪問診療の風景" style="width:100%; height:100%; object-fit:cover;">
       </div>
       <div class="about-text">
         <h3>痛みの専門家として、<br>在宅医療に全力を。</h3>
@@ -552,7 +565,7 @@ footer {
           患者さまが本当に望まれる医療を、一人ひとりに合った"プライマリーケア"を、尊厳を大切にした看取りケアを実施しております。
         </p>
         <div class="about-doctor">
-          <div class="doctor-avatar">院長写真</div>
+          <div class="doctor-avatar"><img src="images/02-director.png" alt="院長 小林徳行" style="width:100%; height:100%; object-fit:cover; border-radius:50%;"></div>
           <div class="doctor-info">
             <div class="title">院長・ペインクリニック専門医</div>
             <div class="name">小林 徳行</div>
