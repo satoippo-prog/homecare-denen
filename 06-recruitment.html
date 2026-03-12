@@ -141,9 +141,8 @@ footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 64px 24
   display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(26,62,48,0.97); z-index: 150;
   flex-direction: column; align-items: center; justify-content: center;
-  gap: 0; opacity: 0; transition: opacity 0.3s ease;
-}
-.mobile-nav.active { display: flex; opacity: 1; }
+  gap: 0; }
+.mobile-nav.active { display: flex; }
 .mobile-nav a {
   color: white; text-decoration: none; font-size: 17px; font-weight: 500;
   font-family: var(--serif); padding: 16px 0; letter-spacing: 1px;
@@ -408,16 +407,15 @@ footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 64px 24
 
 <script>
 function toggleMenu() {
-  document.querySelector(".hamburger").classList.toggle("active");
-  var nav = document.getElementById("mobileNav");
-  if (nav.classList.contains("active")) {
-    nav.style.opacity = "0";
-    setTimeout(function() { nav.classList.remove("active"); }, 300);
+  var btn = document.querySelector('.hamburger');
+  var nav = document.getElementById('mobileNav');
+  btn.classList.toggle('active');
+  nav.classList.toggle('active');
+  if (nav.classList.contains('active')) {
+    document.body.style.overflow = 'hidden';
   } else {
-    nav.classList.add("active");
-    setTimeout(function() { nav.style.opacity = "1"; }, 10);
+    document.body.style.overflow = '';
   }
-  document.body.style.overflow = nav.classList.contains("active") ? "hidden" : "";
 }
 </script>
 </body>
