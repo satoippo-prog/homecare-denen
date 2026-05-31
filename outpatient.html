@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>外来診療 | さくらクリニック</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #2C5F4B; --primary-light: #3D7A62; --primary-pale: #E8F0EC;
+  --accent: #C4926E; --accent-light: #E8D5C4;
+  --dark: #1A1A1A; --text: #333333; --text-light: #666666;
+  --bg: #FAFAF7; --white: #FFFFFF; --border: #E0DDD8;
+  --serif: 'Noto Serif JP', serif; --sans: 'Noto Sans JP', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--sans); color: var(--text); background: var(--bg); line-height: 1.8; overflow-x: hidden; }
+
+/* ===== HEADER ===== */
+.header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--dark); }
+.logo-icon { width: 44px; height: 44px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; color: white; font-family: var(--serif); font-size: 18px; font-weight: 700; }
+.logo-text { font-family: var(--serif); font-size: 14px; line-height: 1.4; }
+.logo-text span { display: block; font-size: 11px; color: var(--text-light); font-family: var(--sans); font-weight: 300; letter-spacing: 1px; }
+nav { display: flex; align-items: center; gap: 28px; }
+nav a { text-decoration: none; color: var(--text); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; position: relative; padding-bottom: 2px; }
+nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px; background: var(--primary); transition: width 0.3s ease; }
+nav a:hover::after { width: 100%; }
+nav a.active { color: var(--primary); }
+nav a.active::after { width: 100%; }
+.header-cta { background: var(--primary); color: white; padding: 10px 24px; border-radius: 30px; text-decoration: none; font-size: 13px; font-weight: 500; transition: all 0.3s ease; }
+.header-cta:hover { background: var(--primary-light); }
+
+/* ===== PAGE HERO ===== */
+.page-hero { margin-top: 77px; padding: 80px 24px 60px; background: linear-gradient(135deg, var(--primary) 0%, #1a3e30 100%); position: relative; overflow: hidden; }
+.page-hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+.page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+.page-hero .breadcrumb { font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+.page-hero .breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; }
+.page-hero .en { display: block; font-size: 11px; letter-spacing: 4px; color: var(--accent-light); text-transform: uppercase; font-weight: 700; margin-bottom: 8px; opacity: 0; animation: fadeUp 0.6s ease 0.2s forwards; }
+.page-hero h1 { font-family: var(--serif); color: white; font-size: clamp(28px, 4vw, 40px); font-weight: 600; line-height: 1.5; opacity: 0; animation: fadeUp 0.6s ease 0.4s forwards; }
+.page-hero-desc { color: rgba(255,255,255,0.8); font-size: 14px; margin-top: 16px; line-height: 2; max-width: 600px; opacity: 0; animation: fadeUp 0.6s ease 0.6s forwards; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ===== PAGE NAV ===== */
+.page-nav { background: var(--white); border-bottom: 1px solid var(--border); padding: 16px 24px; position: sticky; top: 77px; z-index: 50; }
+.page-nav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 4px; flex-wrap: wrap; justify-content: center; }
+.page-nav a { display: inline-block; padding: 8px 16px; font-size: 12px; font-weight: 500; color: var(--text-light); text-decoration: none; border-radius: 20px; transition: all 0.2s; border: 1px solid transparent; }
+.page-nav a:hover { background: var(--primary-pale); color: var(--primary); border-color: var(--primary); }
+
+/* ===== COMMON SECTIONS ===== */
+.section { padding: 100px 24px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 56px; }
+.section-header .en { display: block; font-size: 11px; letter-spacing: 4px; color: var(--accent); text-transform: uppercase; font-weight: 700; margin-bottom: 8px; }
+.section-header h2 { font-family: var(--serif); font-size: clamp(24px, 3vw, 32px); font-weight: 600; color: var(--dark); line-height: 1.5; }
+.section-header h2 em { font-style: normal; color: var(--primary); }
+.section-header p { margin-top: 16px; color: var(--text-light); font-size: 14px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 2; }
+
+/* ===== 1. FEATURES ===== */
+.highlight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.highlight-image { aspect-ratio: 4/3; background: var(--primary-pale); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--primary); opacity: 0.6; text-align: center; line-height: 2; }
+.highlight-text h3 { font-family: var(--serif); font-size: 22px; color: var(--dark); margin-bottom: 20px; line-height: 1.6; }
+.highlight-text p { font-size: 14px; color: var(--text-light); line-height: 2.2; margin-bottom: 16px; }
+
+/* ===== 2. COMPARE TABLE ===== */
+.compare-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+.compare-table th, .compare-table td { padding: 16px 20px; font-size: 13px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.9; }
+.compare-table thead th { background: var(--bg); font-weight: 600; color: var(--dark); font-size: 14px; text-align: center; }
+.compare-table thead th.highlight-col { background: var(--primary); color: white; border-radius: 8px 8px 0 0; }
+.compare-table td.highlight-col { background: var(--primary-pale); }
+.compare-table .row-label { font-weight: 600; color: var(--dark); white-space: nowrap; width: 100px; font-size: 13px; }
+
+/* ===== 3. FLOW ===== */
+.flow-steps { display: flex; gap: 0; position: relative; justify-content: center; }
+.flow-step { flex: 1; max-width: 220px; text-align: center; position: relative; padding: 0 16px; }
+.flow-step:not(:last-child)::after { content: '→'; position: absolute; right: -12px; top: 28px; font-size: 20px; color: var(--accent); }
+.flow-circle { width: 64px; height: 64px; border-radius: 50%; background: var(--primary); color: white; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 22px; font-weight: 700; }
+.flow-step h4 { font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--dark); }
+.flow-step p { font-size: 12px; color: var(--text-light); line-height: 1.8; }
+
+/* ===== 4. BENEFITS ===== */
+.benefit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.benefit-card { background: var(--white); border-radius: 16px; padding: 32px 24px; border: 1px solid var(--border); text-align: center; transition: all 0.3s; }
+.benefit-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+.benefit-icon { width: 64px; height: 64px; border-radius: 50%; background: var(--primary-pale); margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--text-light); border: 2px solid var(--border); }
+.benefit-card h4 { font-family: var(--serif); font-size: 15px; color: var(--dark); margin-bottom: 10px; line-height: 1.5; }
+.benefit-card p { font-size: 13px; color: var(--text-light); line-height: 1.9; }
+
+/* ===== 5. ELIGIBLE ===== */
+.eligible-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.eligible-item { background: var(--white); border-radius: 12px; padding: 20px 24px; border: 1px solid var(--border); display: flex; align-items: center; gap: 16px; font-size: 14px; color: var(--text); }
+.eligible-item .check { width: 32px; height: 32px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+
+/* ===== 6. DISEASES ===== */
+.disease-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.disease-category { background: var(--white); border-radius: 12px; padding: 24px; border: 1px solid var(--border); }
+.disease-category h4 { font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.disease-category p { font-size: 13px; color: var(--text-light); line-height: 2; }
+
+/* ===== 7. TREATMENTS ===== */
+.treatment-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.treatment-item { background: var(--white); border-radius: 12px; padding: 24px; border: 1px solid var(--border); display: flex; align-items: start; gap: 16px; }
+.treatment-icon { width: 40px; height: 40px; border-radius: 8px; background: var(--primary-pale); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--text-light); flex-shrink: 0; border: 1px solid var(--border); }
+.treatment-item h4 { font-size: 14px; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+.treatment-item p { font-size: 12px; color: var(--text-light); line-height: 1.8; }
+
+/* ===== 8. COST ===== */
+.cost-table-wrap { background: var(--white); border-radius: 16px; padding: 40px; border: 1px solid var(--border); }
+.cost-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+.cost-table th, .cost-table td { padding: 14px 16px; font-size: 13px; text-align: left; border-bottom: 1px solid var(--border); }
+.cost-table thead th { background: var(--primary); color: white; font-weight: 600; }
+.cost-table .amount { font-family: var(--serif); font-weight: 700; color: var(--primary); font-size: 15px; }
+.cost-note { font-size: 12px; color: var(--text-light); line-height: 2; }
+
+/* ===== 9. MITORI ===== */
+.mitori-content { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.mitori-text h3 { font-family: var(--serif); font-size: 22px; color: var(--dark); margin-bottom: 20px; line-height: 1.6; }
+.mitori-text p { font-size: 14px; color: var(--text-light); line-height: 2.2; margin-bottom: 16px; }
+.mitori-image { aspect-ratio: 4/3; background: var(--primary-pale); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--primary); opacity: 0.6; text-align: center; }
+
+/* ===== 10. AREA ===== */
+.area-content { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.area-map { aspect-ratio: 4/3; background: var(--primary-pale); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--primary); opacity: 0.6; }
+.area-sub h3 { font-family: var(--serif); font-size: 20px; color: var(--dark); margin-bottom: 12px; padding-left: 16px; border-left: 3px solid var(--primary); }
+.area-sub p { margin-bottom: 24px; color: var(--text-light); font-size: 14px; line-height: 2; }
+.area-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.area-item { background: var(--white); border-radius: 8px; padding: 16px; border: 1px solid var(--border); text-align: center; font-size: 14px; font-weight: 600; color: var(--dark); }
+.area-item.main { background: var(--primary); color: white; }
+
+/* ===== CTA ===== */
+.cta-banner { background: linear-gradient(135deg, var(--primary) 0%, #1a3e30 100%); padding: 80px 24px; text-align: center; }
+.cta-banner h2 { font-family: var(--serif); font-size: 28px; color: white; margin-bottom: 16px; line-height: 1.6; }
+.cta-banner p { color: rgba(255,255,255,0.8); font-size: 14px; margin-bottom: 32px; line-height: 2; }
+.cta-btn { display: inline-block; background: white; color: var(--primary); padding: 14px 40px; border-radius: 40px; text-decoration: none; font-weight: 700; font-size: 14px; transition: all 0.3s ease; margin: 0 8px; }
+.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+.cta-btn.secondary { background: transparent; color: white; border: 1px solid rgba(255,255,255,0.4); }
+
+/* ===== CONTACT ===== */
+.contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 800px; margin: 0 auto; }
+.contact-box { background: var(--white); border-radius: 16px; padding: 40px 32px; border: 1px solid var(--border); text-align: center; }
+.contact-box h3 { font-family: var(--serif); font-size: 16px; color: var(--dark); margin-bottom: 8px; }
+.contact-box p { font-size: 13px; color: var(--text-light); margin-bottom: 20px; }
+.contact-tel { display: block; font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--primary); text-decoration: none; margin-bottom: 8px; }
+.contact-tel-note { font-size: 11px; color: var(--text-light); }
+.contact-btn { display: inline-block; background: var(--primary); color: white; padding: 14px 32px; border-radius: 40px; text-decoration: none; font-size: 14px; font-weight: 600; transition: all 0.3s; }
+.contact-btn:hover { background: var(--primary-light); transform: translateY(-2px); }
+
+/* ===== FOOTER ===== */
+footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 64px 24px 32px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+.footer-brand { font-family: var(--serif); color: white; font-size: 16px; margin-bottom: 12px; }
+.footer-brand-sub { font-size: 12px; line-height: 1.8; }
+.footer-col h4 { color: white; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; font-weight: 700; }
+.footer-col a { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; margin-bottom: 8px; }
+.footer-col a:hover { color: var(--accent-light); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 11px; }
+.footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
+
+/* ===== FAQ ===== */
+.faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+.faq-item { background: var(--white); border-radius: 12px; padding: 24px; border: 1px solid var(--border); }
+.faq-q { font-size: 14px; font-weight: 600; color: var(--dark); margin-bottom: 12px; padding-left: 24px; position: relative; line-height: 1.6; }
+.faq-q::before { content: 'Q'; position: absolute; left: 0; top: 0; color: var(--primary); font-family: var(--serif); font-weight: 700; }
+.faq-a { font-size: 13px; color: var(--text-light); line-height: 2; padding-left: 24px; position: relative; }
+.faq-a::before { content: 'A'; position: absolute; left: 0; top: 0; color: var(--accent); font-family: var(--serif); font-weight: 700; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  nav { display: none; }
+  .highlight-grid, .mitori-content, .area-content { grid-template-columns: 1fr; gap: 32px; }
+  .compare-table { font-size: 12px; }
+  .compare-table th, .compare-table td { padding: 10px 12px; }
+  .flow-steps { flex-direction: column; align-items: center; }
+  .flow-step:not(:last-child)::after { content: '↓'; right: auto; bottom: -16px; top: auto; left: 50%; transform: translateX(-50%); }
+  .benefit-grid, .disease-grid { grid-template-columns: 1fr; }
+  .eligible-list, .treatment-grid { grid-template-columns: 1fr; }
+  .page-nav { display: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .contact-inner { grid-template-columns: 1fr; }
+}
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+  display: none; width: 32px; height: 32px;
+  flex-direction: column; justify-content: center; align-items: center;
+  gap: 6px; cursor: pointer; z-index: 200; background: none; border: none; padding: 0;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px; background: var(--dark);
+  transition: all 0.3s ease; border-radius: 2px;
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+.mobile-nav {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(26,62,48,0.97); z-index: 150;
+  flex-direction: column; align-items: center; justify-content: center;
+  gap: 0; }
+.mobile-nav.active { display: flex; }
+.mobile-nav a {
+  color: white; text-decoration: none; font-size: 17px; font-weight: 500;
+  font-family: var(--serif); padding: 16px 0; letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255,255,255,0.1); width: 70%; text-align: center;
+  transition: color 0.2s;
+}
+.mobile-nav a:last-child { border-bottom: none; }
+.mobile-nav a:hover { color: var(--accent-light); }
+.mobile-nav .mobile-tel {
+  margin-top: 28px; font-family: var(--serif); font-size: 20px;
+  color: var(--accent-light); font-weight: 700; text-decoration: none;
+  border-bottom: none;
+}
+.mobile-nav .mobile-tel-note {
+  font-size: 11px; color: rgba(255,255,255,0.5);
+  border-bottom: none; padding: 4px 0;
+}
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .header-cta { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="01-top.html" class="logo">
+      <div class="logo-icon">さ</div>
+      <div class="logo-text">
+        さくらクリニック
+        <span>SAKURA CLINIC</span>
+      </div>
+    </a>
+    <nav>
+      <a href="02-clinic-introduction.html">クリニック紹介</a>
+      <a href="outpatient.html" class="active">外来診療</a>
+      <a href="03-home-medical-care.html">訪問診療</a>
+      <a href="04-specialties.html">診療科目</a>
+      <a href="news-column.html">お知らせ・コラム</a>
+      <a href="05-partners.html">各機関の方へ</a>
+      <a href="06-recruitment.html">採用情報</a>
+    </nav>
+    <a href="07-contact.html" class="header-cta">お問い合わせ</a>
+    <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="01-top.html" onclick="toggleMenu()">ホーム</a>
+  <a href="02-clinic-introduction.html" onclick="toggleMenu()">クリニック紹介</a>
+  <a href="outpatient.html" onclick="toggleMenu()">外来診療</a>
+  <a href="03-home-medical-care.html" onclick="toggleMenu()">訪問診療</a>
+  <a href="04-specialties.html" onclick="toggleMenu()">診療科目</a>
+  <a href="news-column.html" onclick="toggleMenu()">お知らせ・コラム</a>
+  <a href="05-partners.html" onclick="toggleMenu()">各機関の方へ</a>
+  <a href="06-recruitment.html" onclick="toggleMenu()">採用情報</a>
+  <a href="07-contact.html" onclick="toggleMenu()">お問い合わせ</a>
+  <a href="tel:03-XXXX-XXXX" class="mobile-tel">03-XXXX-XXXX</a>
+  <span class="mobile-tel-note">受付：月〜土 9:00〜18:00</span>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="01-top.html">ホーム</a> &gt; 外来診療</div>
+    <span class="en">Outpatient</span>
+    <h1>外来診療について</h1>
+    <p class="page-hero-desc">内科・整形外科の外来診療を行っています。気になる症状はお気軽にご相談ください。</p>
+  </div>
+</section>
+
+<!-- PAGE NAV -->
+<div class="page-nav">
+  <div class="page-nav-inner">
+    <a href="#naika">内科診療</a>
+    <a href="#seikei">整形外科診療</a>
+    <a href="#schedule">診療時間・費用</a>
+    <a href="#reservation">予約方法</a>
+    <a href="#faq">よくあるご質問</a>
+  </div>
+</div>
+
+<!-- 1. 外来診療について -->
+<section class="section" id="about" style="background:var(--white);">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="en">About</span>
+      <h2>外来診療の<em>ご案内</em></h2>
+    </div>
+    <div class="highlight-grid">
+      <div class="highlight-image">
+        <img src="images/08-team-meeting.png" alt="外来診療" style="width:100%;height:100%;object-fit:cover;border-radius:16px;">
+      </div>
+      <div class="highlight-text">
+        <h3>症状に合わせた<br>丁寧な診察を心がけています。</h3>
+        <p>さくらクリニックの外来診療では、内科・整形外科にわたる幅広い疾患に対応します。</p>
+        <p>「少し気になる症状がある」「健診で引っかかった」「薬の管理が必要」など、日々の健康に関するご相談もお気軽にどうぞ。</p>
+        <p>患者さまひとりひとりの状態を丁寧に把握し、最適な治療方針をご提案します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. 内科診療 -->
+<section class="section" id="naika" style="background:var(--bg);">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="en">Internal Medicine</span>
+      <h2><em>内科</em>の診療内容</h2>
+    </div>
+    <div class="disease-grid">
+      <div class="disease-category">
+        <h4>一般内科</h4>
+        <ul style="font-size:13px;color:var(--text-light);line-height:2.4;padding-left:16px;">
+          <li>風邪・発熱・咳・喉の痛み</li>
+          <li>倦怠感・食欲不振</li>
+          <li>胃痛・腹痛・下痢・便秘</li>
+          <li>花粉症・アレルギー性鼻炎</li>
+        </ul>
+      </div>
+      <div class="disease-category">
+        <h4>生活習慣病</h4>
+        <ul style="font-size:13px;color:var(--text-light);line-height:2.4;padding-left:16px;">
+          <li>高血圧症</li>
+          <li>2型糖尿病・境界型糖尿病</li>
+          <li>脂質異常症（高コレステロール）</li>
+          <li>慢性腎臓病・高尿酸血症</li>
+        </ul>
+      </div>
+      <div class="disease-category">
+        <h4>予防・検診</h4>
+        <ul style="font-size:13px;color:var(--text-light);line-height:2.4;padding-left:16px;">
+          <li>定期健康診断</li>
+          <li>血液検査・尿検査</li>
+          <li>インフルエンザ予防接種</li>
+          <li>肺炎球菌・帯状疱疹ワクチン</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. 整形外科診療 -->
+<section class="section" id="seikei" style="background:var(--white);">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="en">Orthopedics</span>
+      <h2><em>整形外科</em>の診療内容</h2>
+    </div>
+    <div class="disease-grid">
+      <div class="disease-category">
+        <h4>腰・背中</h4>
+        <ul style="font-size:13px;color:var(--text-light);line-height:2.4;padding-left:16px;">
+          <li>急性腰痛（ぎっくり腰）</li>
+          <li>腰椎椎間板ヘルニア</li>
+          <li>脊柱管狭窄症</li>
+          <li>坐骨神経痛</li>
+        </ul>
+      </div>
+      <div class="disease-category">
+        <h4>膝・股関節</h4>
+        <ul style="font-size:13px;color:var(--text-light);line-height:2.4;padding-left:16px;">
+          <li>変形性膝関節症</li>
+          <li>膝の水腫・靭帯損傷</li>
+          <li>変形性股関節症</li>
+          <li>捻挫・打撲</li>
+        </ul>
+      </div>
+      <div class="disease-category">
+        <h4>肩・首・手</h4>
+        <ul style="font-size:13px;color:var(--text-light);line-height:2.4;padding-left:16px;">
+          <li>五十肩・肩関節炎</li>
+          <li>頚椎椎間板ヘルニア</li>
+          <li>手根管症候群</li>
+          <li>骨粗鬆症の検査・治療</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. 診療時間・費用 -->
+<section class="section" id="schedule" style="background:var(--bg);">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="en">Schedule &amp; Fee</span>
+      <h2>診療時間・<em>費用</em></h2>
+    </div>
+    <div style="max-width:700px;margin:0 auto;">
+      <table class="compare-table" style="margin-bottom:40px;">
+        <thead>
+          <tr>
+            <th>曜日</th>
+            <th class="highlight-col">午前 9:00〜13:00</th>
+            <th>午後 14:00〜18:00</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="row-label">月〜金</td><td class="highlight-col" style="text-align:center;">●</td><td style="text-align:center;">●</td></tr>
+          <tr><td class="row-label">土曜日</td><td class="highlight-col" style="text-align:center;">●</td><td style="text-align:center;">休診</td></tr>
+          <tr><td class="row-label">日・祝</td><td style="text-align:center;" colspan="2">休診</td></tr>
+        </tbody>
+      </table>
+      <div style="background:var(--white);border-radius:12px;padding:24px;border:1px solid var(--border);font-size:13px;color:var(--text-light);line-height:2.2;">
+        <strong style="color:var(--dark);">費用の目安（健康保険適用）</strong><br>
+        初診：3割負担の場合 約1,500〜3,000円程度<br>
+        再診：3割負担の場合 約700〜1,500円程度<br>
+        ※薬代・検査代は別途。後期高齢者・乳幼児医療証をお持ちの方は異なります。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. 予約方法 -->
+<section class="section" id="reservation" style="background:var(--white);">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="en">Reservation</span>
+      <h2><em>予約</em>方法</h2>
+      <p>お電話またはWebフォームからご予約いただけます。</p>
+    </div>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-circle">1</div>
+        <h4>予約する</h4>
+        <p>電話またはWebフォームから希望日時をご連絡ください。</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-circle">2</div>
+        <h4>来院する</h4>
+        <p>保険証・お薬手帳をお持ちください。初診の方は10分前にお越しください。</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-circle">3</div>
+        <h4>診察・治療</h4>
+        <p>症状を丁寧にお聞きし、必要な検査・処置を行います。</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-circle">4</div>
+        <h4>お会計・処方</h4>
+        <p>お薬の処方箋をお渡しします。次回の受診日もご案内します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. FAQ -->
+<section class="section faq" id="faq" style="background:var(--bg);">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="en">FAQ</span>
+      <h2>よくある<em>ご質問</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">予約なしでも受診できますか？</div>
+        <div class="faq-a">はい、当日の飛び込み受診も空き状況によって対応可能です。ただし、お待ちいただく場合がございますので、事前のご予約をお勧めします。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">内科と整形外科を同じ日に受診できますか？</div>
+        <div class="faq-a">はい、同日に両科の診察を受けることができます。受付時にその旨をお申し出ください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">どのような持ち物が必要ですか？</div>
+        <div class="faq-a">健康保険証、お薬手帳（お持ちの方）、他院の紹介状（お持ちの方）をご持参ください。後期高齢者医療被保険者証・乳幼児医療証をお持ちの方はあわせてご持参ください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">レントゲン・超音波検査はできますか？</div>
+        <div class="faq-a">はい、院内でレントゲン撮影・超音波（エコー）検査が可能です。検査結果はその場でご説明します。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact" style="background:var(--primary-pale);padding:80px 24px;">
+  <div class="section-header" style="margin-bottom:40px;">
+    <span class="en">Contact</span>
+    <h2>ご予約・<em>お問い合わせ</em></h2>
+    <p>外来診療のご予約はお電話またはWebフォームから。</p>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-box">
+      <h3>お電話でのご予約</h3>
+      <p>受付時間内にお電話ください</p>
+      <a href="tel:03-XXXX-XXXX" class="contact-tel">03-XXXX-XXXX</a>
+      <div class="contact-tel-note">受付時間：月〜土 9:00〜18:00</div>
+    </div>
+    <div class="contact-box">
+      <h3>Webからのご予約</h3>
+      <p>24時間いつでもご予約いただけます</p>
+      <a href="07-contact.html" class="contact-btn">予約フォームへ</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">さくらクリニック</div>
+        <div class="footer-brand-sub">
+          医療法人さくら会<br>
+          〒160-0022 東京都新宿区新宿3-1-1（架空）<br>
+          TEL: 03-XXXX-XXXX
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>クリニック</h4>
+        <a href="02-clinic-introduction.html">クリニック紹介</a>
+        <a href="02-clinic-introduction.html#doctor">院長紹介</a>
+        <a href="02-clinic-introduction.html#strength">当院の特徴</a>
+        <a href="06-recruitment.html">採用情報</a>
+      </div>
+      <div class="footer-col">
+        <h4>診療案内</h4>
+        <a href="outpatient.html">外来診療</a>
+        <a href="03-home-medical-care.html">訪問診療</a>
+        <a href="04-specialties.html">診療科目</a>
+        <a href="news-column.html">お知らせ・コラム</a>
+      </div>
+      <div class="footer-col">
+        <h4>お問い合わせ</h4>
+        <a href="07-contact.html">お問い合わせフォーム</a>
+        <a href="07-contact.html#form">新患お申込みフォーム</a>
+        <a href="05-partners.html">各機関の皆様へ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>©︎ 2026 Sakura Clinic</span>
+      <a href="#">プライバシーポリシー</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  var btn = document.querySelector('.hamburger');
+  var nav = document.getElementById('mobileNav');
+  btn.classList.toggle('active');
+  nav.classList.toggle('active');
+  if (nav.classList.contains('active')) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
+}
+</script>
+</body>
+</html>
