@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>お問い合わせ | ホームケアクリニック田園調布</title>
+<title>お問い合わせ | さくらクリニック</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -106,7 +106,7 @@ nav a.active::after { width: 100%; }
 
 /* ===== CLINIC INFO ===== */
 .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-.info-map { aspect-ratio: 16/10; background: var(--primary-pale); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--text-light); }
+.info-map { aspect-ratio: 16/10; min-height: 280px; background: var(--primary-pale); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--text-light); }
 .info-details dl { display: grid; grid-template-columns: 90px 1fr; gap: 14px 20px; font-size: 13px; }
 .info-details dt { font-weight: 600; color: var(--dark); }
 .info-details dd { color: var(--text-light); line-height: 1.8; }
@@ -180,18 +180,22 @@ footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 64px 24
 <header class="header">
   <div class="header-inner">
     <a href="01-top.html" class="logo">
-      <div class="logo-icon">H</div>
-      <div class="logo-text">ホームケアクリニック田園調布<span>HOMECARE CLINIC DENENCHOFU</span></div>
+      <div class="logo-icon">さ</div>
+      <div class="logo-text">
+        さくらクリニック
+        <span>SAKURA CLINIC</span>
+      </div>
     </a>
     <nav>
       <a href="02-clinic-introduction.html">クリニック紹介</a>
+      <a href="outpatient.html">外来診療</a>
       <a href="03-home-medical-care.html">訪問診療</a>
       <a href="04-specialties.html">診療科目</a>
+      <a href="news-column.html">お知らせ・コラム</a>
       <a href="05-partners.html">各機関の方へ</a>
       <a href="06-recruitment.html">採用情報</a>
-      <a href="#" class="active">お問い合わせ</a>
     </nav>
-    <a href="#form" class="header-cta">お問い合わせ</a>
+    <a href="07-contact.html" class="header-cta">お問い合わせ</a>
     <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -200,13 +204,15 @@ footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 64px 24
 <div class="mobile-nav" id="mobileNav">
   <a href="01-top.html" onclick="toggleMenu()">ホーム</a>
   <a href="02-clinic-introduction.html" onclick="toggleMenu()">クリニック紹介</a>
+  <a href="outpatient.html" onclick="toggleMenu()">外来診療</a>
   <a href="03-home-medical-care.html" onclick="toggleMenu()">訪問診療</a>
   <a href="04-specialties.html" onclick="toggleMenu()">診療科目</a>
+  <a href="news-column.html" onclick="toggleMenu()">お知らせ・コラム</a>
   <a href="05-partners.html" onclick="toggleMenu()">各機関の方へ</a>
   <a href="06-recruitment.html" onclick="toggleMenu()">採用情報</a>
   <a href="07-contact.html" onclick="toggleMenu()">お問い合わせ</a>
-  <a href="tel:03-6715-6812" class="mobile-tel">03-6715-6812</a>
-  <span class="mobile-tel-note">受付：月〜金 9:00〜18:00</span>
+  <a href="tel:03-XXXX-XXXX" class="mobile-tel">03-XXXX-XXXX</a>
+  <span class="mobile-tel-note">受付：月〜土 9:00〜18:00</span>
 </div>
 
 <!-- PAGE HERO -->
@@ -232,14 +238,14 @@ footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 64px 24
         <div class="method-icon">TEL</div>
         <h3>お電話</h3>
         <p>お急ぎの方はお電話ください</p>
-        <a href="tel:03-6715-6812" class="tel">03-6715-6812</a>
-        <div class="note">受付：月〜金 9:00〜18:00</div>
+        <a href="tel:03-XXXX-XXXX" class="tel">03-XXXX-XXXX</a>
+        <div class="note">受付：月〜土 9:00〜18:00</div>
       </div>
       <div class="method-card">
         <div class="method-icon">FAX</div>
         <h3>FAX</h3>
         <p>診療情報提供書の送付など</p>
-        <span class="tel" style="cursor:default;">03-6715-6813</span>
+        <span class="tel" style="cursor:default;">03-XXXX-XXXX</span>
         <div class="note">24時間受付</div>
       </div>
       <div class="method-card">
@@ -278,7 +284,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 64px 24
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">お名前（姓）<span class="required">必須</span></label>
-            <input type="text" class="form-input" placeholder="田園">
+            <input type="text" class="form-input" placeholder="さくら">
           </div>
           <div class="form-group">
             <label class="form-label">お名前（名）<span class="required">必須</span></label>
@@ -362,41 +368,72 @@ footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 64px 24
       <h2>クリニック<em>情報</em></h2>
     </div>
     <div class="info-grid">
-      <div class="info-map">Googleマップ 埋め込みエリア</div>
+      <div class="info-map" style="overflow:hidden;">
+        <iframe
+          src="https://maps.google.com/maps?q=35.6929,139.7039&z=16&output=embed"
+          width="100%"
+          height="100%"
+          style="border:0;display:block;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="さくらクリニック 地図">
+        </iframe>
+      </div>
       <div class="info-details">
         <dl>
           <dt>クリニック名</dt>
-          <dd>医療法人凌仁会<br>ホームケアクリニック田園調布</dd>
+          <dd>医療法人さくら会<br>さくらクリニック</dd>
           <dt>所在地</dt>
-          <dd>〒145-0071<br>東京都大田区田園調布2-42-5<br>アパートメントカヤ101</dd>
+          <dd>〒160-0022<br>東京都新宿区新宿3-1-1（架空）</dd>
           <dt>最寄り駅</dt>
-          <dd>東急東横線 田園調布駅<br>東口より徒歩5分</dd>
+          <dd>JR・地下鉄 新宿駅<br>東口より徒歩5分</dd>
           <dt>TEL</dt>
-          <dd>03-6715-6812</dd>
+          <dd>03-XXXX-XXXX</dd>
           <dt>FAX</dt>
-          <dd>03-6715-6813</dd>
+          <dd>03-XXXX-XXXX</dd>
           <dt>診療日</dt>
-          <dd>月〜金（土・日・祝は休診）<br>※在宅患者様は365日対応</dd>
+          <dd>月〜土（日・祝は休診）<br>※在宅患者様は365日対応</dd>
         </dl>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand">ホームケアクリニック田園調布</div>
-        <div class="footer-brand-sub">医療法人凌仁会<br>〒145-0071 東京都大田区田園調布2-42-5<br>TEL: 03-6715-6812</div>
+        <div class="footer-brand">さくらクリニック</div>
+        <div class="footer-brand-sub">
+          医療法人さくら会<br>
+          〒160-0022 東京都新宿区新宿3-1-1（架空）<br>
+          TEL: 03-XXXX-XXXX
+        </div>
       </div>
-      <div class="footer-col"><h4>クリニック</h4><a href="02-clinic-introduction.html">クリニック紹介</a><a href="02-clinic-introduction.html#director">院長紹介</a><a href="02-clinic-introduction.html#features">当院の特徴</a><a href="06-recruitment.html">採用情報</a></div>
-      <div class="footer-col"><h4>訪問診療</h4><a href="03-home-medical-care.html">訪問診療について</a><a href="04-specialties.html">緩和ケア</a><a href="03-home-medical-care.html#eligible">ご利用にあたって</a><a href="03-home-medical-care.html#cost">費用について</a></div>
-      <div class="footer-col"><h4>お問い合わせ</h4><a href="07-contact.html">お問い合わせフォーム</a><a href="07-contact.html#form">新患お申込み</a><a href="05-partners.html">各機関の皆様へ</a></div>
+      <div class="footer-col">
+        <h4>クリニック</h4>
+        <a href="02-clinic-introduction.html">クリニック紹介</a>
+        <a href="02-clinic-introduction.html#doctor">院長紹介</a>
+        <a href="02-clinic-introduction.html#strength">当院の特徴</a>
+        <a href="06-recruitment.html">採用情報</a>
+      </div>
+      <div class="footer-col">
+        <h4>診療案内</h4>
+        <a href="outpatient.html">外来診療</a>
+        <a href="03-home-medical-care.html">訪問診療</a>
+        <a href="04-specialties.html">診療科目</a>
+        <a href="news-column.html">お知らせ・コラム</a>
+      </div>
+      <div class="footer-col">
+        <h4>お問い合わせ</h4>
+        <a href="07-contact.html">お問い合わせフォーム</a>
+        <a href="07-contact.html#form">新患お申込みフォーム</a>
+        <a href="05-partners.html">各機関の皆様へ</a>
+      </div>
     </div>
     <div class="footer-bottom">
-      <span>©︎ 2024 Homecare Clinic Denenchofu</span>
+      <span>©︎ 2026 Sakura Clinic</span>
       <a href="#">プライバシーポリシー</a>
     </div>
   </div>
