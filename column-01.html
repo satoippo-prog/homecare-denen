@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高齢者の腰痛と訪問診療の活用法 | さくらクリニック 健康コラム</title>
+<meta name="description" content="腰痛で通院が困難な高齢者の方に向けて、訪問診療を活用した腰痛治療・在宅リハビリについてさくらクリニックの医師が解説します。">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #2C5F4B;
+  --primary-light: #3D7A62;
+  --primary-pale: #E8F0EC;
+  --accent: #C4926E;
+  --accent-light: #E8D5C4;
+  --dark: #1A1A1A;
+  --text: #333333;
+  --text-light: #666666;
+  --bg: #FAFAF7;
+  --white: #FFFFFF;
+  --border: #E0DDD8;
+  --serif: 'Noto Serif JP', serif;
+  --sans: 'Noto Sans JP', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+.header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 24px;
+}
+.logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none; color: var(--dark);
+}
+.logo-icon {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--primary);
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-family: var(--serif); font-size: 18px; font-weight: 700;
+}
+.logo-text { font-family: var(--serif); font-size: 14px; line-height: 1.4; }
+.logo-text span { display: block; font-size: 11px; color: var(--text-light); font-family: var(--sans); font-weight: 300; letter-spacing: 1px; }
+
+nav { display: flex; align-items: center; gap: 28px; }
+nav a {
+  text-decoration: none; color: var(--text); font-size: 13px;
+  font-weight: 500; letter-spacing: 0.5px;
+  position: relative; padding-bottom: 2px;
+}
+nav a::after {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  width: 0; height: 1.5px; background: var(--primary);
+  transition: width 0.3s ease;
+}
+nav a:hover::after { width: 100%; }
+nav a.active { color: var(--primary); }
+nav a.active::after { width: 100%; }
+
+.header-cta {
+  background: var(--primary); color: white;
+  padding: 10px 24px; border-radius: 30px;
+  text-decoration: none; font-size: 13px; font-weight: 500;
+  transition: all 0.3s ease;
+}
+.header-cta:hover { background: var(--primary-light); transform: translateY(-1px); }
+
+/* ===== PAGE HERO ===== */
+.page-hero {
+  margin-top: 77px;
+  padding: 80px 24px 60px;
+  background: linear-gradient(135deg, var(--primary) 0%, #1a3e30 100%);
+  position: relative; overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.page-hero-inner {
+  max-width: 1100px; margin: 0 auto; position: relative; z-index: 2;
+}
+.page-hero .breadcrumb {
+  font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 20px;
+}
+.page-hero .breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; }
+.page-hero .breadcrumb a:hover { color: rgba(255,255,255,0.9); }
+.page-hero .en {
+  display: block; font-size: 11px; letter-spacing: 4px;
+  color: var(--accent-light); text-transform: uppercase; font-weight: 700;
+  margin-bottom: 8px;
+  opacity: 0; animation: fadeUp 0.6s ease 0.2s forwards;
+}
+.page-hero h1 {
+  font-family: var(--serif); color: white;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 600; line-height: 1.5;
+  opacity: 0; animation: fadeUp 0.6s ease 0.4s forwards;
+}
+.page-hero-desc {
+  color: rgba(255,255,255,0.75); font-size: 14px; margin-top: 12px;
+  opacity: 0; animation: fadeUp 0.6s ease 0.6s forwards;
+  line-height: 2;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== PAGE NAV ===== */
+.page-nav {
+  background: var(--white); border-bottom: 1px solid var(--border);
+  position: sticky; top: 77px; z-index: 90;
+}
+.page-nav-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; gap: 0; padding: 0 24px;
+}
+.page-nav a {
+  display: block; padding: 16px 24px; font-size: 13px;
+  color: var(--text-light); text-decoration: none; font-weight: 500;
+  border-bottom: 2px solid transparent; transition: all 0.2s;
+}
+.page-nav a:hover { color: var(--primary); border-bottom-color: var(--primary); }
+
+/* ===== SECTIONS ===== */
+.section { padding: 100px 24px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+
+.section-header {
+  text-align: center; margin-bottom: 56px;
+}
+.section-header .en {
+  display: block; font-size: 11px; letter-spacing: 4px;
+  color: var(--accent); text-transform: uppercase; font-weight: 700;
+  margin-bottom: 8px;
+}
+.section-header h2 {
+  font-family: var(--serif); font-size: clamp(24px, 3vw, 32px);
+  font-weight: 600; color: var(--dark); line-height: 1.5;
+}
+.section-header h2 em { font-style: normal; color: var(--primary); }
+.section-header p {
+  margin-top: 16px; color: var(--text-light); font-size: 14px;
+  max-width: 600px; margin-left: auto; margin-right: auto; line-height: 2;
+}
+
+/* ===== CTA BANNER ===== */
+.cta-banner {
+  background: linear-gradient(135deg, var(--primary) 0%, #1a3e30 100%);
+  padding: 80px 24px; text-align: center;
+}
+.cta-banner h2 {
+  font-family: var(--serif); font-size: 28px;
+  color: white; margin-bottom: 16px; line-height: 1.6;
+}
+.cta-banner p {
+  color: rgba(255,255,255,0.8); font-size: 14px;
+  margin-bottom: 32px; line-height: 2;
+}
+.cta-btn {
+  display: inline-block; background: white; color: var(--primary);
+  padding: 14px 40px; border-radius: 40px;
+  text-decoration: none; font-weight: 700; font-size: 14px;
+  transition: all 0.3s ease; margin: 0 8px;
+}
+.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+.cta-btn.secondary {
+  background: transparent; color: white;
+  border: 1px solid rgba(255,255,255,0.4);
+}
+.cta-btn.secondary:hover { background: rgba(255,255,255,0.1); }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--dark); color: rgba(255,255,255,0.7);
+  padding: 64px 24px 32px;
+}
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-grid {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px; margin-bottom: 48px;
+}
+.footer-brand { font-family: var(--serif); color: white; font-size: 16px; margin-bottom: 12px; }
+.footer-brand-sub { font-size: 12px; line-height: 1.8; }
+.footer-col h4 {
+  color: white; font-size: 12px; letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 16px; font-weight: 700;
+}
+.footer-col a {
+  display: block; color: rgba(255,255,255,0.6);
+  text-decoration: none; font-size: 13px; margin-bottom: 8px;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--accent-light); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 11px;
+}
+.footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  nav { display: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+  display: none; width: 32px; height: 32px;
+  flex-direction: column; justify-content: center; align-items: center;
+  gap: 6px; cursor: pointer; z-index: 200; background: none; border: none; padding: 0;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px; background: var(--dark);
+  transition: all 0.3s ease; border-radius: 2px;
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+.mobile-nav {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(26,62,48,0.97); z-index: 150;
+  flex-direction: column; align-items: center; justify-content: center;
+  gap: 0; }
+.mobile-nav.active { display: flex; }
+.mobile-nav a {
+  color: white; text-decoration: none; font-size: 17px; font-weight: 500;
+  font-family: var(--serif); padding: 16px 0; letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255,255,255,0.1); width: 70%; text-align: center;
+  transition: color 0.2s;
+}
+.mobile-nav a:last-child { border-bottom: none; }
+.mobile-nav a:hover { color: var(--accent-light); }
+.mobile-nav .mobile-tel {
+  margin-top: 28px; font-family: var(--serif); font-size: 20px;
+  color: var(--accent-light); font-weight: 700; text-decoration: none;
+  border-bottom: none;
+}
+.mobile-nav .mobile-tel-note {
+  font-size: 11px; color: rgba(255,255,255,0.5);
+  border-bottom: none; padding: 4px 0;
+}
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .header-cta { display: none; }
+}
+
+/* ===== COLUMN CARDS ===== */
+.column-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.column-card { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); text-decoration: none; color: var(--text); transition: all 0.3s ease; display: block; }
+.column-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+.column-card-img { aspect-ratio: 16/9; overflow: hidden; }
+.column-card-img img { width: 100%; height: 100%; object-fit: cover; }
+.column-card-body { padding: 24px; }
+.column-date { font-size: 11px; color: var(--text-light); display: block; margin-bottom: 8px; }
+.column-card h4 { font-family: var(--serif); font-size: 16px; color: var(--dark); margin-bottom: 10px; line-height: 1.5; }
+.column-card p { font-size: 13px; color: var(--text-light); line-height: 1.9; }
+.news-list-item { display: flex; align-items: flex-start; gap: 20px; text-decoration: none; color: var(--text); padding: 20px 0; border-bottom: 1px solid var(--border); }
+.news-list-item:last-child { border-bottom: none; }
+.news-list-item:hover { color: var(--primary); }
+.news-tag { display: inline-block; background: var(--primary); color: white; font-size: 10px; padding: 2px 10px; border-radius: 10px; margin-bottom: 6px; white-space: nowrap; }
+.news-tag--warning { background: var(--accent); }
+@media (max-width: 768px) { .column-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="01-top.html" class="logo">
+      <div class="logo-icon">さ</div>
+      <div class="logo-text">
+        さくらクリニック
+        <span>SAKURA CLINIC</span>
+      </div>
+    </a>
+    <nav>
+      <a href="02-clinic-introduction.html">クリニック紹介</a>
+      <a href="outpatient.html">外来診療</a>
+      <a href="03-home-medical-care.html">訪問診療</a>
+      <a href="04-specialties.html">診療科目</a>
+      <a href="news-column.html" class="active">お知らせ・コラム</a>
+      <a href="05-partners.html">各機関の方へ</a>
+      <a href="06-recruitment.html">採用情報</a>
+    </nav>
+    <a href="07-contact.html" class="header-cta">お問い合わせ</a>
+    <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="01-top.html" onclick="toggleMenu()">ホーム</a>
+  <a href="02-clinic-introduction.html" onclick="toggleMenu()">クリニック紹介</a>
+  <a href="outpatient.html" onclick="toggleMenu()">外来診療</a>
+  <a href="03-home-medical-care.html" onclick="toggleMenu()">訪問診療</a>
+  <a href="04-specialties.html" onclick="toggleMenu()">診療科目</a>
+  <a href="news-column.html" onclick="toggleMenu()">お知らせ・コラム</a>
+  <a href="05-partners.html" onclick="toggleMenu()">各機関の方へ</a>
+  <a href="06-recruitment.html" onclick="toggleMenu()">採用情報</a>
+  <a href="07-contact.html" onclick="toggleMenu()">お問い合わせ</a>
+  <a href="tel:03-XXXX-XXXX" class="mobile-tel">03-XXXX-XXXX</a>
+  <span class="mobile-tel-note">受付：月〜土 9:00〜18:00</span>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="01-top.html">ホーム</a> &gt; <a href="news-column.html">お知らせ・健康コラム</a> &gt; 記事</div>
+    <span class="en">Health Column</span>
+    <h1>高齢者の腰痛と<br>訪問診療の活用法</h1>
+    <p class="page-hero-desc">2026.03.15 ／ カテゴリ：訪問診療</p>
+  </div>
+</section>
+
+
+<!-- 記事本文 -->
+<article class="section" style="background:var(--white);">
+  <div class="section-inner" style="max-width:800px;">
+
+    <div style="border-radius:16px;overflow:hidden;margin-bottom:48px;aspect-ratio:16/7;">
+      <img src="images/03-home-visit.png" alt="高齢者と医師" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+
+    <p style="font-size:15px;line-height:2.4;margin-bottom:40px;color:var(--text);">
+      高齢になると、腰痛はありふれた悩みの一つになります。しかし、腰痛が重症化したり、膝や股関節の問題が重なると、クリニックへの通院自体が難しくなるケースも少なくありません。そのような方に、<strong>訪問診療</strong>という選択肢があります。本コラムでは、訪問診療を活用した腰痛治療の実態について解説します。
+    </p>
+
+    <h2 style="font-family:var(--serif);font-size:22px;color:var(--dark);margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--primary);">高齢者の腰痛の原因</h2>
+    <p style="font-size:14px;line-height:2.4;margin-bottom:16px;color:var(--text-light);">
+      高齢者の腰痛には、主に以下の原因が挙げられます。
+    </p>
+    <ul style="font-size:14px;line-height:2.4;margin-bottom:40px;padding-left:24px;color:var(--text-light);">
+      <li><strong style="color:var(--dark);">脊柱管狭窄症</strong>：加齢による脊椎の変化で神経が圧迫され、歩行時の痛みやしびれが生じます。</li>
+      <li><strong style="color:var(--dark);">変形性腰椎症</strong>：椎間板の老化・骨の変形によって慢性的な腰痛が起こります。</li>
+      <li><strong style="color:var(--dark);">骨粗鬆症による圧迫骨折</strong>：骨密度の低下により、ちょっとした動作で椎体が潰れてしまう骨折です。</li>
+      <li><strong style="color:var(--dark);">筋力低下</strong>：体幹・腰周りの筋力が落ちることで姿勢が崩れ、腰への負担が増します。</li>
+    </ul>
+
+    <h2 style="font-family:var(--serif);font-size:22px;color:var(--dark);margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--primary);">訪問診療でできる腰痛治療</h2>
+    <p style="font-size:14px;line-height:2.4;margin-bottom:16px;color:var(--text-light);">
+      「腰が痛くてクリニックまで行けない」という方こそ、訪問診療の対象です。医師がご自宅に伺い、以下のような診察・治療が可能です。
+    </p>
+    <ul style="font-size:14px;line-height:2.4;margin-bottom:40px;padding-left:24px;color:var(--text-light);">
+      <li>問診・触診による腰痛の原因評価</li>
+      <li>鎮痛剤・湿布・筋弛緩薬などの処方</li>
+      <li>必要に応じた携帯型超音波装置による画像評価</li>
+      <li>骨粗鬆症の検査・治療薬の管理</li>
+      <li>コルセットなどの補助具の提案</li>
+    </ul>
+
+    <h2 style="font-family:var(--serif);font-size:22px;color:var(--dark);margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--primary);">在宅リハビリとの連携</h2>
+    <p style="font-size:14px;line-height:2.4;margin-bottom:16px;color:var(--text-light);">
+      訪問診療は単独ではなく、訪問リハビリテーション・訪問看護と連携して機能します。理学療法士が自宅を訪問し、患者さまの状態や住環境に合わせたリハビリプログラムを提供します。
+    </p>
+    <p style="font-size:14px;line-height:2.4;margin-bottom:40px;color:var(--text-light);">
+      「痛みを薬でコントロールしながら、少しずつ動けるようになる」という目標を、医師・看護師・理学療法士のチームで支えます。
+    </p>
+
+    <h2 style="font-family:var(--serif);font-size:22px;color:var(--dark);margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--primary);">さくらクリニックへのご相談</h2>
+    <p style="font-size:14px;line-height:2.4;margin-bottom:32px;color:var(--text-light);">
+      さくらクリニックでは、新宿区・渋谷区・中野区・杉並区エリアで訪問診療を提供しています。腰痛で通院が困難な方、在宅療養を検討している方は、お気軽にお電話またはフォームからご相談ください。
+    </p>
+
+    <div style="background:var(--primary-pale);border-radius:16px;padding:32px;text-align:center;margin-bottom:40px;">
+      <p style="font-family:var(--serif);font-size:18px;color:var(--dark);margin-bottom:16px;">訪問診療のご相談はこちら</p>
+      <a href="07-contact.html" style="display:inline-block;background:var(--primary);color:white;padding:14px 40px;border-radius:40px;text-decoration:none;font-size:14px;font-weight:700;margin-right:12px;margin-bottom:8px;">お問い合わせフォーム</a>
+      <a href="03-home-medical-care.html" style="display:inline-block;background:white;color:var(--primary);padding:14px 40px;border-radius:40px;text-decoration:none;font-size:14px;font-weight:700;border:1px solid var(--primary);">訪問診療について詳しく</a>
+    </div>
+
+    <div style="border-top:1px solid var(--border);padding-top:24px;font-size:12px;color:var(--text-light);">
+      <p>監修：さくらクリニック 院長 さくら 太郎（内科専門医）</p>
+      <p>公開日：2026年3月15日</p>
+      <p style="margin-top:8px;"><a href="news-column.html" style="color:var(--primary);">← コラム一覧に戻る</a></p>
+    </div>
+
+  </div>
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">さくらクリニック</div>
+        <div class="footer-brand-sub">
+          医療法人さくら会<br>
+          〒160-0022 東京都新宿区新宿3-1-1（架空）<br>
+          TEL: 03-XXXX-XXXX
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>クリニック</h4>
+        <a href="02-clinic-introduction.html">クリニック紹介</a>
+        <a href="02-clinic-introduction.html#doctor">院長紹介</a>
+        <a href="02-clinic-introduction.html#strength">当院の特徴</a>
+        <a href="06-recruitment.html">採用情報</a>
+      </div>
+      <div class="footer-col">
+        <h4>診療案内</h4>
+        <a href="outpatient.html">外来診療</a>
+        <a href="03-home-medical-care.html">訪問診療</a>
+        <a href="04-specialties.html">診療科目</a>
+        <a href="news-column.html">お知らせ・コラム</a>
+      </div>
+      <div class="footer-col">
+        <h4>お問い合わせ</h4>
+        <a href="07-contact.html">お問い合わせフォーム</a>
+        <a href="07-contact.html#form">新患お申込みフォーム</a>
+        <a href="05-partners.html">各機関の皆様へ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>©︎ 2026 Sakura Clinic</span>
+      <a href="#">プライバシーポリシー</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  var btn = document.querySelector('.hamburger');
+  var nav = document.getElementById('mobileNav');
+  btn.classList.toggle('active');
+  nav.classList.toggle('active');
+  if (nav.classList.contains('active')) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
+}
+</script>
+</body>
+</html>
