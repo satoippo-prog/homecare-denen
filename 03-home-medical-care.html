@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>当院の訪問診療について | ホームケアクリニック田園調布</title>
+<title>訪問診療について | さくらクリニック</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -211,16 +211,20 @@ footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 64px 24
 <header class="header">
   <div class="header-inner">
     <a href="01-top.html" class="logo">
-      <div class="logo-icon">H</div>
-      <div class="logo-text">ホームケアクリニック田園調布<span>HOMECARE CLINIC DENENCHOFU</span></div>
+      <div class="logo-icon">さ</div>
+      <div class="logo-text">
+        さくらクリニック
+        <span>SAKURA CLINIC</span>
+      </div>
     </a>
     <nav>
       <a href="02-clinic-introduction.html">クリニック紹介</a>
-      <a href="#" class="active">訪問診療</a>
+      <a href="outpatient.html">外来診療</a>
+      <a href="03-home-medical-care.html" class="active">訪問診療</a>
       <a href="04-specialties.html">診療科目</a>
+      <a href="news-column.html">お知らせ・コラム</a>
       <a href="05-partners.html">各機関の方へ</a>
       <a href="06-recruitment.html">採用情報</a>
-      <a href="07-contact.html">お問い合わせ</a>
     </nav>
     <a href="07-contact.html" class="header-cta">お問い合わせ</a>
     <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
@@ -231,13 +235,15 @@ footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 64px 24
 <div class="mobile-nav" id="mobileNav">
   <a href="01-top.html" onclick="toggleMenu()">ホーム</a>
   <a href="02-clinic-introduction.html" onclick="toggleMenu()">クリニック紹介</a>
+  <a href="outpatient.html" onclick="toggleMenu()">外来診療</a>
   <a href="03-home-medical-care.html" onclick="toggleMenu()">訪問診療</a>
   <a href="04-specialties.html" onclick="toggleMenu()">診療科目</a>
+  <a href="news-column.html" onclick="toggleMenu()">お知らせ・コラム</a>
   <a href="05-partners.html" onclick="toggleMenu()">各機関の方へ</a>
   <a href="06-recruitment.html" onclick="toggleMenu()">採用情報</a>
   <a href="07-contact.html" onclick="toggleMenu()">お問い合わせ</a>
-  <a href="tel:03-6715-6812" class="mobile-tel">03-6715-6812</a>
-  <span class="mobile-tel-note">受付：月〜金 9:00〜18:00</span>
+  <a href="tel:03-XXXX-XXXX" class="mobile-tel">03-XXXX-XXXX</a>
+  <span class="mobile-tel-note">受付：月〜土 9:00〜18:00</span>
 </div>
 
 <!-- PAGE HERO -->
@@ -276,9 +282,9 @@ footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 64px 24
     <div class="highlight-grid">
       <div class="highlight-image"><img src="images/03-home-visit.png" alt="訪問診療の様子" style="width:100%; height:100%; object-fit:cover; border-radius:16px;"></div>
       <div class="highlight-text">
-        <h3>痛みの専門家による<br>安心の在宅医療</h3>
-        <p>当院はペインクリニック専門医を中心に、内科・神経内科・呼吸器内科・消化器外科など複数の専門医が在籍するチーム医療体制で訪問診療を行っています。</p>
-        <p>特に痛みの治療と緩和ケアに強みがあり、硬膜外ブロックや各種神経ブロックなど、通常は病院で行う高度な疼痛管理を在宅で提供できることが大きな特徴です。</p>
+        <h3>内科・整形外科の専門家による<br>安心の在宅医療</h3>
+        <p>当院は内科・整形外科を中心に、複数の専門医が在籍するチーム医療体制で訪問診療を行っています。</p>
+        <p>特に内科・整形外科の在宅対応に強みがあり、生活習慣病の管理から運動器疾患まで幅広く対応できることが大きな特徴です。</p>
         <p>24時間365日の臨時往診・電話相談体制を整え、患者さまとご家族の安心をお守りします。</p>
       </div>
     </div>
@@ -370,8 +376,8 @@ footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 64px 24
       </div>
       <div class="benefit-card">
         <div class="benefit-icon">写真</div>
-        <h4>高度な疼痛管理が<br>自宅で可能</h4>
-        <p>ペインクリニック専門医による神経ブロックなども在宅で提供します。</p>
+        <h4>内科・整形外科の<br>専門的なケアが自宅で</h4>
+        <p>生活習慣病の管理から運動器疾患まで、内科・整形外科の専門医が在宅で対応します。</p>
       </div>
       <div class="benefit-card">
         <div class="benefit-icon">写真</div>
@@ -483,7 +489,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 64px 24
       </div>
       <div class="treatment-item">
         <div class="treatment-icon">写真</div>
-        <div><h4>神経ブロック</h4><p>ペインクリニック専門医による高度な疼痛管理</p></div>
+        <div><h4>運動器疾患の処置</h4><p>内科・整形外科専門医による在宅での運動器疾患対応</p></div>
       </div>
     </div>
   </div>
@@ -529,7 +535,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 64px 24
       <div class="mitori-text">
         <h3>住み慣れた場所で、<br>穏やかな最期を。</h3>
         <p>人生の最終段階を住み慣れた場所で過ごしたいという患者さまの思いに寄り添い、ご家族と一緒に最善のケアを考えます。</p>
-        <p>当院の院長はペインクリニック専門医であり、緩和ケアの経験が豊富です。がんの痛みをはじめとする苦痛症状の管理に最大限取り組み、患者さまが穏やかに過ごせるよう支援します。</p>
+        <p>当院の院長は内科・整形外科の専門医であり、緩和ケアの経験が豊富です。がんの痛みをはじめとする苦痛症状の管理に最大限取り組み、患者さまが穏やかに過ごせるよう支援します。</p>
         <p>看取りの方針は患者さまとご家族の意思を最大限尊重します。急変時の対応や心肺蘇生の希望など、事前に丁寧にお話し合いを行います（ACP：アドバンス・ケア・プランニング）。</p>
       </div>
       <div class="mitori-image"><img src="images/04-end-of-life.png" alt="穏やかな在宅ケア" style="width:100%; height:100%; object-fit:cover; border-radius:16px;"></div>
@@ -552,11 +558,10 @@ footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 64px 24
           <p>クリニックから概ね16km圏内が訪問範囲です。</p>
         </div>
         <div class="area-list">
-          <div class="area-item main">大田区</div>
-          <div class="area-item main">世田谷区</div>
-          <div class="area-item">目黒区</div>
-          <div class="area-item">品川区</div>
-          <div class="area-item">川崎市</div>
+          <div class="area-item main">新宿区</div>
+          <div class="area-item main">渋谷区</div>
+          <div class="area-item">中野区</div>
+          <div class="area-item">杉並区</div>
           <div class="area-item" style="font-size: 12px; color: var(--text-light); font-weight: 400;">※ その他近隣エリアはご相談</div>
         </div>
       </div>
@@ -569,23 +574,43 @@ footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 64px 24
   <h2>まずはお気軽にご相談ください</h2>
   <p>訪問診療について、ご不明な点やご不安な点がございましたら<br>お電話またはフォームからお問い合わせください。</p>
   <a href="07-contact.html" class="cta-btn">お問い合わせフォーム</a>
-  <a href="tel:03-6715-6812" class="cta-btn secondary">電話する 03-6715-6812</a>
+  <a href="tel:03-XXXX-XXXX" class="cta-btn secondary">電話する 03-XXXX-XXXX</a>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand">ホームケアクリニック田園調布</div>
-        <div class="footer-brand-sub">医療法人凌仁会<br>〒145-0071 東京都大田区田園調布2-42-5<br>TEL: 03-6715-6812</div>
+        <div class="footer-brand">さくらクリニック</div>
+        <div class="footer-brand-sub">
+          医療法人さくら会<br>
+          〒160-0022 東京都新宿区新宿3-1-1（架空）<br>
+          TEL: 03-XXXX-XXXX
+        </div>
       </div>
-      <div class="footer-col"><h4>クリニック</h4><a href="02-clinic-introduction.html">クリニック紹介</a><a href="02-clinic-introduction.html#director">院長紹介</a><a href="02-clinic-introduction.html#features">当院の特徴</a><a href="06-recruitment.html">採用情報</a></div>
-      <div class="footer-col"><h4>訪問診療</h4><a href="03-home-medical-care.html">訪問診療について</a><a href="04-specialties.html">緩和ケア</a><a href="03-home-medical-care.html#eligible">ご利用にあたって</a><a href="03-home-medical-care.html#cost">費用について</a></div>
-      <div class="footer-col"><h4>お問い合わせ</h4><a href="07-contact.html">お問い合わせフォーム</a><a href="07-contact.html#form">新患お申込み</a><a href="05-partners.html">各機関の皆様へ</a></div>
+      <div class="footer-col">
+        <h4>クリニック</h4>
+        <a href="02-clinic-introduction.html">クリニック紹介</a>
+        <a href="02-clinic-introduction.html#doctor">院長紹介</a>
+        <a href="02-clinic-introduction.html#strength">当院の特徴</a>
+        <a href="06-recruitment.html">採用情報</a>
+      </div>
+      <div class="footer-col">
+        <h4>診療案内</h4>
+        <a href="outpatient.html">外来診療</a>
+        <a href="03-home-medical-care.html">訪問診療</a>
+        <a href="04-specialties.html">診療科目</a>
+        <a href="news-column.html">お知らせ・コラム</a>
+      </div>
+      <div class="footer-col">
+        <h4>お問い合わせ</h4>
+        <a href="07-contact.html">お問い合わせフォーム</a>
+        <a href="07-contact.html#form">新患お申込みフォーム</a>
+        <a href="05-partners.html">各機関の皆様へ</a>
+      </div>
     </div>
     <div class="footer-bottom">
-      <span>©︎ 2024 Homecare Clinic Denenchofu</span>
+      <span>©︎ 2026 Sakura Clinic</span>
       <a href="#">プライバシーポリシー</a>
     </div>
   </div>
