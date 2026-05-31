@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ホームケアクリニック田園調布 | ワイヤーフレーム</title>
+<title>さくらクリニック | 新宿区の内科・整形外科・訪問診療</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -459,6 +459,42 @@ footer {
 }
 .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
 
+/* ===== QUICK ACCESS ===== */
+.quick-access { background: var(--primary-pale); padding: 48px 24px; }
+.quick-access-inner {
+  max-width: 900px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+}
+.quick-card {
+  background: var(--white); border-radius: 16px; padding: 32px 28px;
+  border-left: 4px solid var(--primary);
+  text-decoration: none; color: var(--text); display: block;
+  transition: all 0.3s ease;
+}
+.quick-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+.quick-card--accent { border-left-color: var(--accent); }
+.quick-en { display: block; font-size: 10px; letter-spacing: 3px; color: var(--primary); font-weight: 700; margin-bottom: 8px; }
+.quick-card--accent .quick-en { color: var(--accent); }
+.quick-card h3 { font-family: var(--serif); font-size: 22px; color: var(--dark); margin-bottom: 10px; }
+.quick-card p { font-size: 13px; color: var(--text-light); line-height: 1.9; margin-bottom: 16px; }
+.quick-btn { display: inline-block; background: var(--primary); color: white; padding: 8px 20px; border-radius: 20px; font-size: 12px; font-weight: 500; }
+.quick-card--accent .quick-btn { background: var(--accent); }
+
+/* ===== COLUMN PREVIEW ===== */
+.column-preview { background: var(--white); }
+.column-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.column-card {
+  border-radius: 16px; overflow: hidden; border: 1px solid var(--border);
+  text-decoration: none; color: var(--text); transition: all 0.3s ease; display: block;
+}
+.column-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+.column-card-img { aspect-ratio: 16/9; overflow: hidden; }
+.column-card-img img { width: 100%; height: 100%; object-fit: cover; }
+.column-card-body { padding: 24px; }
+.column-date { font-size: 11px; color: var(--text-light); display: block; margin-bottom: 8px; }
+.column-card h4 { font-family: var(--serif); font-size: 16px; color: var(--dark); margin-bottom: 10px; line-height: 1.5; }
+.column-card p { font-size: 13px; color: var(--text-light); line-height: 1.9; }
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   nav { display: none; }
@@ -470,6 +506,8 @@ footer {
   .contact-inner { grid-template-columns: 1fr; }
   .clinic-info-inner { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+  .quick-access-inner { grid-template-columns: 1fr; }
+  .column-grid { grid-template-columns: 1fr; }
   .hero { height: 70vh; }
   .hero-badge { display: none; }
   .hero-content { padding: 0 24px; }
@@ -522,20 +560,21 @@ footer {
 <!-- HEADER -->
 <header class="header">
   <div class="header-inner">
-    <a href="#" class="logo">
-      <div class="logo-icon">H</div>
+    <a href="01-top.html" class="logo">
+      <div class="logo-icon">さ</div>
       <div class="logo-text">
-        ホームケアクリニック田園調布
-        <span>HOMECARE CLINIC DENENCHOFU</span>
+        さくらクリニック
+        <span>SAKURA CLINIC</span>
       </div>
     </a>
     <nav>
       <a href="02-clinic-introduction.html">クリニック紹介</a>
+      <a href="outpatient.html">外来診療</a>
       <a href="03-home-medical-care.html">訪問診療</a>
       <a href="04-specialties.html">診療科目</a>
+      <a href="news-column.html">お知らせ・コラム</a>
       <a href="05-partners.html">各機関の方へ</a>
       <a href="06-recruitment.html">採用情報</a>
-      <a href="07-contact.html">お問い合わせ</a>
     </nav>
     <a href="07-contact.html" class="header-cta">お問い合わせ</a>
     <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
@@ -546,32 +585,34 @@ footer {
 <div class="mobile-nav" id="mobileNav">
   <a href="01-top.html" onclick="toggleMenu()">ホーム</a>
   <a href="02-clinic-introduction.html" onclick="toggleMenu()">クリニック紹介</a>
+  <a href="outpatient.html" onclick="toggleMenu()">外来診療</a>
   <a href="03-home-medical-care.html" onclick="toggleMenu()">訪問診療</a>
   <a href="04-specialties.html" onclick="toggleMenu()">診療科目</a>
+  <a href="news-column.html" onclick="toggleMenu()">お知らせ・コラム</a>
   <a href="05-partners.html" onclick="toggleMenu()">各機関の方へ</a>
   <a href="06-recruitment.html" onclick="toggleMenu()">採用情報</a>
   <a href="07-contact.html" onclick="toggleMenu()">お問い合わせ</a>
-  <a href="tel:03-6715-6812" class="mobile-tel">03-6715-6812</a>
-  <span class="mobile-tel-note">受付：月〜金 9:00〜18:00</span>
+  <a href="tel:03-XXXX-XXXX" class="mobile-tel">03-XXXX-XXXX</a>
+  <span class="mobile-tel-note">受付：月〜土 9:00〜18:00</span>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg">
-    <img src="images/01-hero.png" alt="訪問診療の風景">
+    <img src="images/01-hero.png" alt="さくらクリニック 診療の風景">
   </div>
   <div class="hero-content">
-    <span class="hero-label">Homecare Clinic Denenchofu</span>
-    <h1>患者さんの<br><em>「家で過ごしたい」</em>を<br>支えるために。</h1>
+    <span class="hero-label">Sakura Clinic</span>
+    <h1>外来から在宅まで、<br><em>地域のかかりつけ医</em>として。</h1>
     <p class="hero-sub">
-      総合診療・一般内科に加え、痛みの治療や緩和ケアを得意とする<br>
-      訪問診療専門クリニックです。<br>
-      大田区・世田谷区・目黒区・品川区・川崎市エリアに対応。
+      内科・整形外科の外来診療と、<br>
+      通院が困難な方への訪問診療に対応。<br>
+      新宿区・渋谷区・中野区・杉並区エリアに対応。
     </p>
   </div>
   <div class="hero-badge">
-    <strong>24時間 365日対応</strong>
-    在宅患者様の臨時往診・電話相談
+    <strong>365日 在宅対応</strong>
+    訪問診療は土日祝も対応
   </div>
 </section>
 
@@ -580,52 +621,70 @@ footer {
   <div class="news-bar-inner">
     <span class="news-label">NEWS</span>
     <div class="news-items">
-      <a href="#" class="news-item">
-        <time>2025.12.26</time>
-        年末年始の休診のお知らせ
+      <a href="news-column.html" class="news-item">
+        <time>2026.04.01</time>
+        春の健康診断キャンペーン開始のお知らせ
       </a>
-      <a href="#" class="news-item">
-        <time>2025.07.23</time>
-        新しい常勤医師のご紹介
+      <a href="news-column.html" class="news-item">
+        <time>2026.03.01</time>
+        整形外科の診療を開始しました
       </a>
-      <a href="#" class="news-item">
-        <time>2024.05.31</time>
-        医療情報取得加算・医療DX推進体制整備加算に関する掲示
+      <a href="news-column.html" class="news-item">
+        <time>2026.01.10</time>
+        訪問診療の受付エリアを拡大しました
       </a>
     </div>
   </div>
 </div>
+
+<!-- QUICK ACCESS -->
+<section class="quick-access">
+  <div class="quick-access-inner">
+    <a href="outpatient.html" class="quick-card">
+      <span class="quick-en">OUTPATIENT</span>
+      <h3>外来診療</h3>
+      <p>内科・整形外科<br>月〜土 9:00〜18:00</p>
+      <span class="quick-btn">詳しく見る →</span>
+    </a>
+    <a href="03-home-medical-care.html" class="quick-card quick-card--accent">
+      <span class="quick-en">HOME VISIT</span>
+      <h3>訪問診療</h3>
+      <p>通院困難な方・在宅療養<br>365日対応</p>
+      <span class="quick-btn">詳しく見る →</span>
+    </a>
+  </div>
+</section>
 
 <!-- ABOUT -->
 <section class="section about" id="about">
   <div class="section-inner">
     <div class="section-header">
       <span class="en">About Us</span>
-      <h2><em>私たちの使命</em> — 住み慣れた場所での医療を</h2>
+      <h2><em>さくらクリニック</em>について</h2>
     </div>
     <div class="about-grid">
       <div class="about-image">
         <img src="images/01-hero.png" alt="訪問診療の風景" style="width:100%; height:100%; object-fit:cover;">
       </div>
       <div class="about-text">
-        <h3>痛みの専門家として、<br>在宅医療に全力を。</h3>
-        <p>
-          私は20年来、大学病院で麻酔科医として手術麻酔や集中治療で患者の全身状態を診るだけでなく、患者の痛みの治療を行うペインクリニックを担当してきました。
-        </p>
-        <p>
-          後年は「緩和ケア」に携わるようになり、在宅での療養を希望する患者さんの声に触れるうちに、自分の医療技術を在宅医療に活かしたいと思い至りました。
-        </p>
-        <p>
-          患者さまが本当に望まれる医療を、一人ひとりに合った"プライマリーケア"を、尊厳を大切にした看取りケアを実施しております。
-        </p>
-        <div class="about-doctor">
-          <div class="doctor-avatar"><img src="images/02-director.png" alt="院長 小林徳行" style="width:100%; height:100%; object-fit:cover; border-radius:50%;"></div>
-          <div class="doctor-info">
-            <div class="title">院長・ペインクリニック専門医</div>
-            <div class="name">小林 徳行</div>
-          </div>
-        </div>
-      </div>
+  <h3>外来から在宅まで、<br>一人ひとりに寄り添う医療を。</h3>
+  <p>
+    さくらクリニックは、内科・整形外科の外来診療と、通院が難しい方のための訪問診療を組み合わせた地域密着型クリニックです。
+  </p>
+  <p>
+    生活習慣病の管理から腰痛・膝痛などの整形外科的な問題、そして在宅での療養まで、患者さまのライフステージに合わせた切れ目のない医療を提供します。
+  </p>
+  <p>
+    「かかりつけ医」として、些細なことでも気軽に相談できる存在でありたいと考えています。
+  </p>
+  <div class="about-doctor">
+    <div class="doctor-avatar"><img src="images/02-director.png" alt="院長 さくら太郎" style="width:100%; height:100%; object-fit:cover; border-radius:50%;"></div>
+    <div class="doctor-info">
+      <div class="title">院長・内科専門医</div>
+      <div class="name">さくら 太郎</div>
+    </div>
+  </div>
+</div>
     </div>
   </div>
 </section>
@@ -641,67 +700,70 @@ footer {
     <div class="strength-grid">
       <div class="strength-card">
         <div class="strength-num">01</div>
-        <h4>痛みの治療・<br>緩和ケアの専門性</h4>
-        <p>ペインクリニック専門医による高度な疼痛管理。硬膜外ブロックや各種神経ブロックにも対応します。</p>
+        <h4>外来＋在宅の<br>一貫サポート</h4>
+        <p>外来で診てきた患者さまが在宅療養に移行する際も、同じ医師がシームレスに対応します。</p>
       </div>
       <div class="strength-card">
         <div class="strength-num">02</div>
-        <h4>24時間365日<br>対応</h4>
-        <p>土日祝も臨時往診・電話相談に対応。急な体調変化にも安心の体制を整えています。</p>
+        <h4>内科・整形外科の<br>専門医が在籍</h4>
+        <p>生活習慣病から腰痛・膝痛まで、一つのクリニックで幅広い症状に対応できます。</p>
       </div>
       <div class="strength-card">
         <div class="strength-num">03</div>
-        <h4>複数の専門医による<br>チーム医療</h4>
-        <p>内科、神経内科、呼吸器内科、消化器外科など、複数の専門医が在籍し幅広い疾患に対応します。</p>
+        <h4>365日<br>訪問診療対応</h4>
+        <p>土日祝も臨時往診・電話相談に対応。急な体調変化にも安心の体制を整えています。</p>
       </div>
       <div class="strength-card">
         <div class="strength-num">04</div>
-        <h4>尊厳を大切にした<br>看取りケア</h4>
-        <p>患者さまとご家族の意思を尊重し、住み慣れた場所での穏やかな最期を支えます。</p>
+        <h4>予防医療・<br>健康診断</h4>
+        <p>定期的な健康診断や生活習慣病の早期発見・予防指導に力を入れています。</p>
       </div>
       <div class="strength-card">
         <div class="strength-num">05</div>
-        <h4>地域医療機関との<br>連携体制</h4>
-        <p>訪問看護ステーション、地域包括支援センター、ケアマネージャーと密に連携しています。</p>
+        <h4>多職種<br>チーム医療</h4>
+        <p>訪問看護師・ケアマネージャー・理学療法士と連携し、総合的なケアを提供します。</p>
       </div>
       <div class="strength-card">
         <div class="strength-num">06</div>
-        <h4>幅広い<br>対応エリア</h4>
-        <p>大田区・世田谷区・目黒区・品川区・川崎市エリア。田園調布駅から徒歩5分の好立地です。</p>
+        <h4>地域包括支援との<br>連携体制</h4>
+        <p>新宿区・渋谷区・中野区・杉並区の地域包括支援センターと密に連携しています。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="section services" id="services">
+<!-- COLUMN PREVIEW -->
+<section class="section column-preview" id="column">
   <div class="section-inner">
     <div class="section-header">
-      <span class="en">Home Medical Care</span>
-      <h2><em>訪問診療</em>について</h2>
-      <p>通院が困難な方に、医師が定期的にご自宅や施設へ伺い診療を行います。</p>
+      <span class="en">Column</span>
+      <h2>健康<em>コラム</em></h2>
+      <p>皆さまの健康に役立つ情報をお届けします。</p>
     </div>
-    <div class="services-grid">
-      <a href="#" class="service-card">
-        <div class="service-icon">写真</div>
-        <h4>訪問診療とは</h4>
-        <p>訪問診療の基本的な仕組みについてご説明します</p>
+    <div class="column-grid">
+      <a href="column-01.html" class="column-card">
+        <div class="column-card-img">
+          <img src="images/03-home-visit.png" alt="高齢者の腰痛と訪問診療">
+        </div>
+        <div class="column-card-body">
+          <time class="column-date">2026.03.15</time>
+          <h4>高齢者の腰痛と訪問診療の活用法</h4>
+          <p>腰痛で通院が難しい高齢者の方へ、訪問診療での診察・リハビリ支援についてご説明します。</p>
+        </div>
       </a>
-      <a href="#" class="service-card">
-        <div class="service-icon">写真</div>
-        <h4>ご利用にあたって</h4>
-        <p>対象となる方やお申し込み方法について</p>
+      <a href="column-02.html" class="column-card">
+        <div class="column-card-img">
+          <img src="images/05-general.png" alt="生活習慣病とかかりつけ医">
+        </div>
+        <div class="column-card-body">
+          <time class="column-date">2026.02.20</time>
+          <h4>生活習慣病の管理とかかりつけ医の重要性</h4>
+          <p>高血圧・糖尿病などの生活習慣病は、定期的な受診とかかりつけ医との信頼関係が鍵です。</p>
+        </div>
       </a>
-      <a href="#" class="service-card">
-        <div class="service-icon">写真</div>
-        <h4>費用について</h4>
-        <p>訪問診療にかかる費用の目安をご案内します</p>
-      </a>
-      <a href="#" class="service-card">
-        <div class="service-icon">写真</div>
-        <h4>訪問可能エリア</h4>
-        <p>大田区・世田谷区・目黒区・品川区・川崎市</p>
-      </a>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="news-column.html" class="care-cta">コラム一覧を見る</a>
     </div>
   </div>
 </section>
@@ -709,13 +771,13 @@ footer {
 <!-- CARE BANNER -->
 <section class="care-banner" id="care">
   <div class="care-banner-inner">
-    <h2>緩和ケアについて</h2>
+    <h2>訪問診療について</h2>
     <p>
-      がんなどの疾患に伴う痛みや苦痛を和らげ、患者さまとご家族が<br>
-      穏やかに過ごせるよう支援します。ペインクリニック専門医が<br>
-      高度な疼痛管理を在宅で提供します。
+      通院が困難な方・在宅での療養を希望される方を対象に、<br>
+      医師と看護師が定期的にご自宅・施設へ訪問します。<br>
+      在宅での検査・処置・薬の処方まで一貫して対応します。
     </p>
-    <a href="#" class="care-cta">緩和ケアについて詳しく見る</a>
+    <a href="03-home-medical-care.html" class="care-cta">訪問診療について詳しく見る</a>
   </div>
 </section>
 
@@ -730,12 +792,12 @@ footer {
       <div class="flow-step">
         <div class="flow-circle">1</div>
         <h4>お電話・ご相談</h4>
-        <p>まずはお気軽にお電話ください。患者さんの状態を簡単にお伺いします。</p>
+        <p>まずはお気軽にお電話ください。現在のご状態を簡単にお伺いします。</p>
       </div>
       <div class="flow-step">
         <div class="flow-circle">2</div>
-        <h4>打ち合わせ</h4>
-        <p>主治医からの情報を基に、患者さん・ご家族と訪問計画を立てます。</p>
+        <h4>初回面談・計画立案</h4>
+        <p>主治医・ご家族と訪問計画を立てます。保険適用の手続きもサポートします。</p>
       </div>
       <div class="flow-step">
         <div class="flow-circle">3</div>
@@ -760,20 +822,20 @@ footer {
     </div>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q">どのような病気・状態でも診てもらえますか？</div>
-        <div class="faq-a">末期がん、COPD、慢性心不全、認知症など幅広く対応しています。「入院するしかない」と言われた方でも、在宅で過ごせる可能性があります。まずはお気軽にご相談ください。</div>
+        <div class="faq-q">外来と訪問診療の両方を利用できますか？</div>
+        <div class="faq-a">はい。外来でかかりつけ医として診てきた患者さまが、状態の変化で在宅療養が必要になった際も、同じ医師が訪問診療を担当できます。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">整形外科の診療は予約が必要ですか？</div>
+        <div class="faq-a">原則として予約制をお勧めしています。お電話またはWebフォームからご予約いただけます。当日の飛び込み受診も空き状況によって対応可能です。</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">訪問診療でどのような検査ができますか？</div>
-        <div class="faq-a">血液検査、心電図検査、超音波検査が可能です。処方する薬も一般の医療機関と同じものを使用できます。</div>
+        <div class="faq-a">血液検査・心電図・超音波検査が可能です。処方薬は一般の医療機関と同じものを使用できます。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">訪問の頻度はどのくらいですか？</div>
-        <div class="faq-a">基本的に月2回程度、医師と看護師の2人でお伺いします。末期がんの方は週1回など、状態に合わせて柔軟に対応します。</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">夜間や休日の急な体調変化にも対応できますか？</div>
-        <div class="faq-a">はい。24時間365日、臨時往診や電話相談に対応しています。急な体調変化の際もご安心ください。</div>
+        <div class="faq-q">夜間・休日の急な体調変化にも対応できますか？</div>
+        <div class="faq-a">はい。在宅患者様は365日、臨時往診・電話相談に対応しています。急な体調変化の際もご安心ください。</div>
       </div>
     </div>
   </div>
@@ -790,8 +852,8 @@ footer {
     <div class="contact-box">
       <h3>お電話でのお問い合わせ</h3>
       <p>まずはお電話でご相談ください</p>
-      <a href="tel:03-6715-6812" class="contact-tel">03-6715-6812</a>
-      <div class="contact-tel-note">受付時間：月〜金 9:00〜18:00</div>
+      <a href="tel:03-XXXX-XXXX" class="contact-tel">03-XXXX-XXXX</a>
+      <div class="contact-tel-note">受付時間：月〜土 9:00〜18:00</div>
     </div>
     <div class="contact-box">
       <h3>メールでのお問い合わせ</h3>
@@ -805,27 +867,38 @@ footer {
 </section>
 
 <!-- CLINIC INFO -->
-<section class="clinic-info">
+<section class="clinic-info" id="access">
   <div class="clinic-info-inner">
-    <div class="clinic-map">Googleマップ埋め込みエリア</div>
+    <div class="clinic-map" style="overflow:hidden;">
+      <iframe
+        src="https://maps.google.com/maps?q=35.6929,139.7039&z=16&output=embed"
+        width="100%"
+        height="100%"
+        style="border:0;display:block;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="さくらクリニック 地図">
+      </iframe>
+    </div>
     <div class="clinic-details">
       <dl>
         <dt>クリニック名</dt>
-        <dd>医療法人凌仁会<br>ホームケアクリニック田園調布</dd>
+        <dd>医療法人さくら会<br>さくらクリニック</dd>
         <dt>所在地</dt>
-        <dd>〒145-0071<br>東京都大田区田園調布2-42-5<br>アパートメントカヤ101</dd>
+        <dd>〒160-0022<br>東京都新宿区新宿3-1-1（架空）</dd>
         <dt>最寄り駅</dt>
-        <dd>東急東横線 田園調布駅<br>東口より徒歩5分</dd>
+        <dd>JR・地下鉄 新宿駅<br>徒歩5分</dd>
         <dt>TEL</dt>
-        <dd>03-6715-6812</dd>
+        <dd>03-XXXX-XXXX</dd>
         <dt>FAX</dt>
-        <dd>03-6715-6813</dd>
+        <dd>03-XXXX-XXXX</dd>
         <dt>診療科目</dt>
-        <dd>内科・麻酔科・緩和ケア内科・<br>ペインクリニック外科・神経内科</dd>
+        <dd>内科・整形外科</dd>
         <dt>診療日</dt>
-        <dd>月〜金（土・日・祝は休診）<br>※在宅患者様は365日対応</dd>
+        <dd>月〜金 9:00〜18:00<br>土 9:00〜13:00<br>（日・祝休診）<br>※在宅患者様は365日対応</dd>
         <dt>訪問エリア</dt>
-        <dd>大田区・世田谷区・目黒区・<br>品川区・川崎市</dd>
+        <dd>新宿区・渋谷区・中野区・杉並区</dd>
       </dl>
     </div>
   </div>
@@ -836,26 +909,26 @@ footer {
   <div class="footer-inner">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand">ホームケアクリニック田園調布</div>
+        <div class="footer-brand">さくらクリニック</div>
         <div class="footer-brand-sub">
-          医療法人凌仁会<br>
-          〒145-0071 東京都大田区田園調布2-42-5<br>
-          TEL: 03-6715-6812
+          医療法人さくら会<br>
+          〒160-0022 東京都新宿区新宿3-1-1（架空）<br>
+          TEL: 03-XXXX-XXXX
         </div>
       </div>
       <div class="footer-col">
         <h4>クリニック</h4>
-        <a href="#">当院について</a>
-        <a href="02-clinic-introduction.html">院長紹介</a>
-        <a href="02-clinic-introduction.html">当院の特徴</a>
+        <a href="02-clinic-introduction.html">クリニック紹介</a>
+        <a href="02-clinic-introduction.html#doctor">院長紹介</a>
+        <a href="02-clinic-introduction.html#strength">当院の特徴</a>
         <a href="06-recruitment.html">採用情報</a>
       </div>
       <div class="footer-col">
-        <h4>訪問診療</h4>
-        <a href="03-home-medical-care.html">訪問診療とは</a>
-        <a href="04-specialties.html">緩和ケアについて</a>
-        <a href="03-home-medical-care.html#eligible">ご利用にあたって</a>
-        <a href="03-home-medical-care.html#cost">費用について</a>
+        <h4>診療案内</h4>
+        <a href="outpatient.html">外来診療</a>
+        <a href="03-home-medical-care.html">訪問診療</a>
+        <a href="04-specialties.html">診療科目</a>
+        <a href="news-column.html">お知らせ・コラム</a>
       </div>
       <div class="footer-col">
         <h4>お問い合わせ</h4>
@@ -865,7 +938,7 @@ footer {
       </div>
     </div>
     <div class="footer-bottom">
-      <span>©︎ 2024 Homecare Clinic Denenchofu</span>
+      <span>©︎ 2026 Sakura Clinic</span>
       <a href="#">プライバシーポリシー</a>
     </div>
   </div>
